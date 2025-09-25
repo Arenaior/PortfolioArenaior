@@ -167,7 +167,7 @@
     }
 
     /* ---------------- Veille Technologique ---------------- */
-    .veille-container {
+    .veille-container, .competences-container {
       background-color: #303030;
       color: white;
       max-width: 95%;
@@ -178,10 +178,10 @@
       box-shadow: 0 6px 25px rgba(0,0,0,0.15);
     }
 
-    .veille-container h2 { font-size: 28px; margin-bottom: 15px; }
-    .veille-container p { font-size: 18px; margin-bottom: 25px; }
+    .veille-container h2, .competences-container h2 { font-size: 28px; margin-bottom: 15px; }
+    .veille-container p, .competences-container p { font-size: 18px; margin-bottom: 25px; }
 
-    .veille-button {
+    .veille-button, .competences-button {
       display: inline-block;
       width: 50px;
       height: 50px;
@@ -194,12 +194,12 @@
       transition: 0.3s;
     }
 
-    .veille-button:hover { background-color: #FFD700; color: #000; }
+    .veille-button:hover, .competences-button:hover { background-color: #FFD700; color: #000; }
 
     @media screen and (max-width: 800px) {
-      .veille-container h2 { font-size: 24px; }
-      .veille-container p { font-size: 16px; }
-      .veille-button { width: 40px; height: 40px; line-height: 40px; font-size: 20px; }
+      .veille-container h2, .competences-container h2 { font-size: 24px; }
+      .veille-container p, .competences-container p { font-size: 16px; }
+      .veille-button, .competences-button { width: 40px; height: 40px; line-height: 40px; font-size: 20px; }
     }
 
     a { color: inherit; text-decoration: none; }
@@ -244,7 +244,7 @@
      <div class="card">
       <img src="../images/Gasik'Art.png" alt="Projet 2">
       <h3>Stage Première année</h3>
-      <p>Stage : création d’une application de gestion de stock et de caisse pour une entreprise artisanale. Fonctions : gérer produits, ventes, stock et accès admin sécurisé.</p>
+      <p>Stage : création d’une application de gestion de stock et de caisse pour une entreprise artisanale. Fonctions : gérer produits, ventes, stock et accès admin sécurisé.</p>
     </div>
     </a>
 
@@ -259,6 +259,13 @@
       <h3>Stage 2</h3>
       <p>Cette partie représente le stage de deuxième année qui reste encore à définir</p>
     </div>
+  </div>
+
+  <!-- Bloc Compétences -->
+  <div class="competences-container">
+    <h2>Compétences</h2>
+    <p>Découvrez les langages, outils et frameworks que j'utilise.</p>
+    <a href="pages/competences.html" class="competences-button">&#8594;</a>
   </div>
 
   <!-- Bloc Veille Technologique -->
