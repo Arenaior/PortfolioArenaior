@@ -166,7 +166,7 @@
       .presentation-photo img { margin-bottom: 20px; }
     }
 
-    /* ---------------- Veille Technologique ---------------- */
+    /* ---------------- Veille + Compétences ---------------- */
     .veille-container, .competences-container {
       background-color: #303030;
       color: white;
@@ -200,6 +200,81 @@
       .veille-container h2, .competences-container h2 { font-size: 24px; }
       .veille-container p, .competences-container p { font-size: 16px; }
       .veille-button, .competences-button { width: 40px; height: 40px; line-height: 40px; font-size: 20px; }
+    }
+
+    /* ---------------- Contact ---------------- */
+    .contact-container {
+      background: linear-gradient(135deg, #1f1f1f, #2e2e2e, #1a1a1a);
+      color: white;
+      max-width: 95%;
+      margin: 60px auto;
+      padding: 50px 20px;
+      border-radius: 15px;
+      text-align: center;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+      animation: fadeIn 1s ease-in;
+    }
+
+    .contact-container h2 {
+      font-size: 30px;
+      margin-bottom: 15px;
+      position: relative;
+      display: inline-block;
+    }
+
+    .contact-container h2::after {
+      content: "";
+      display: block;
+      width: 60%;
+      margin: 8px auto 0;
+      height: 3px;
+      background: #FFD700;
+      border-radius: 2px;
+    }
+
+    .contact-container p {
+      font-size: 18px;
+      margin-bottom: 30px;
+      opacity: 0.9;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .social-links a {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.1);
+      color: white;
+      font-size: 22px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+    }
+
+    .social-links a:hover {
+      transform: scale(1.15);
+      background: #FFD700;
+      color: #000;
+      box-shadow: 0 6px 20px rgba(255,215,0,0.6);
+    }
+
+    /* Couleurs spécifiques */
+    .social-links .fb:hover { background: #3b5998; color: white; }
+    .social-links .ig:hover { background: #E1306C; color: white; }
+    .social-links .ln:hover { background: #0077B5; color: white; }
+    .social-links .mail:hover { background: #D44638; color: white; }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     a { color: inherit; text-decoration: none; }
@@ -273,6 +348,18 @@
     <h2>Veille Technologique</h2>
     <p>Restez à jour avec les dernières tendances et technologies que j'explore.</p>
     <a href="veille.html" class="veille-button">&#8594;</a>
+  </div>
+
+  <!-- Bloc Contact -->
+  <div class="contact-container">
+    <h2>📩 Contactez-moi</h2>
+    <p>Envie de collaborer ou de discuter d’un projet ? Retrouvez-moi ici :</p>
+    <div class="social-links">
+      <a href="https://www.facebook.com/arena.randrianaina" target="_blank" class="fb">F</a>
+      <a href="https://www.instagram.com/arenaior/" target="_blank" class="ig">I</a>
+      <a href="https://linkedin.com" target="_blank" class="ln">L</a>
+      <a href="arenarandrianaina1@gmail.com" class="mail">✉</a>
+    </div>
   </div>
 
 </body>
