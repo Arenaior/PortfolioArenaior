@@ -1,244 +1,488 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Portfolio Arenaior</title>
-    <style>
-        body {
-            background-color:#1F1F1F;
-            font-family: Arial;
-            color: white;
-        }
-        .container1 {
-            background-image: url("../images/p1.JPEG");
-            background-size: cover;
-            background-repeat: no-repeat;
-            height: 500px0vh;
-            aspect-ratio: 25 / 15;
-            font-family: 'Arial', sans-serif;
-            position: relative;
-            overflow: hidden;
-        }
-        .container1 h1, .container1 p, .container1 a {
-            opacity: 0;
-            transform: translateX(-100%);
-            animation: slideIn 1s forwards;
-        }
-        .container1 p { animation-delay: 0.3s; }
-        .container1 a { animation-delay: 0.6s; }
-        @keyframes slideIn { to { transform: translateX(0); opacity: 1; } }
-        .container1-title {
-            position: absolute;
-            color:white;
-            top:30%; left:15%;
-            font-size:50px;
-        }
-        .container1-text {
-            position: absolute;
-            color:white;
-            top:35%; left:16%;
-            font-size:50px;
-        }
-        .container1-btn {
-            position: absolute;
-            color:black;
-            top:48%; left:16%;
-            font-size:20px;
-            background-color: #FCFCFC;
-            padding: 8px 16px;
-            border-radius: 5px;
-            text-decoration: none;
-        }
-        .container2 {
-            background-color: #1F1F1F;
-            color: white;
-            padding: 20px;
-            text-align: center;
-            font-family: 'Arial', sans-serif;
-        }
-        .presentation-container {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            background-color: #303030;
-            color: white;
-            border-radius: 10px;
-            padding: 30px;
-            max-width: 95%;
-            margin: 50px auto;
-            box-shadow: 0 6px 25px rgba(0,0,0,0.15);
-            gap: 20px;
-            flex: 2;
-        }
-        .presentation-photo img {
-            width: 200px; height: 200px;
-            object-fit: cover;
-            border-radius: 50%;
-            border: 3px solid #FCFCFC;
-        }
-        .presentation-text { flex: 1; min-width: 250px; }
-        .presentation-text h2 { font-size: 28px; margin-bottom: 15px; }
-        .presentation-text p { font-size: 18px; line-height: 1.5; }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio Arenaior</title>
 
-        /* === Redesign des sections du bas === */
-        .projects-section, .skills-section, .veille-section, .contact-section {
-            background-color: #2A2A2A;
-            max-width: 95%;
-            margin: 50px auto;
-            border-radius: 12px;
-            padding: 40px;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
-        }
-        .projects-section h2, .skills-section h2, .veille-section h2, .contact-section h2 {
-            text-align: center;
-            font-size: 30px;
-            margin-bottom: 30px;
-            color: #FFD700;
-        }
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
-        }
-        .project-card {
-            background-color: #1F1F1F;
-            border-radius: 10px;
-            padding: 20px;
-            text-align: center;
-            transition: 0.3s;
-        }
-        .project-card:hover { transform: translateY(-5px); }
-        .project-card img {
-            width: 100%;
-            border-radius: 10px;
-            margin-bottom: 15px;
-        }
-        .skills-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            max-width: 600px;
-            margin: auto;
-        }
-        .skill span { display: block; margin-bottom: 8px; }
-        .bar {
-            width: 100%; height: 10px;
-            background-color: #444;
-            border-radius: 5px;
-            overflow: hidden;
-        }
-        .progress {
-            height: 100%;
-            background-color: #FFD700;
-            width: 0;
-            animation: load 1s forwards;
-        }
-        @keyframes load { to { width: var(--width); } }
+  <style>
+    body {
+      background-color: #1F1F1F;
+      font-family: Arial;
+      color: white;
+    }
 
-        .contact-section form {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            max-width: 400px;
-            margin: 0 auto;
-        }
-        .contact-section input, .contact-section textarea {
-            padding: 10px;
-            border: none;
-            border-radius: 5px;
-            outline: none;
-        }
-        .contact-section button {
-            background-color: #FFD700;
-            color: black;
-            padding: 10px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: bold;
-        }
-        .contact-section button:hover {
-            background-color: #ffcc00;
-        }
+    .container1 {
+      background-image: url("../images/p1.JPEG");
+      background-size: cover;
+      background-repeat: no-repeat;
+      height: 500px0vh;
+      aspect-ratio: 25 / 15;
+      position: relative;
+      overflow: hidden;
+    }
 
-        footer {
-            text-align: center;
-            margin: 30px 0;
-            opacity: 0.8;
-        }
-    </style>
+    /* Animation depuis la gauche */
+    .container1 h1,
+    .container1 p,
+    .container1 a {
+      opacity: 0;
+      transform: translateX(-100%);
+      animation: slideIn 1s forwards;
+    }
+
+    .container1 p {
+      animation-delay: 0.3s;
+    }
+
+    .container1 a {
+      animation-delay: 0.6s;
+    }
+
+    @keyframes slideIn {
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    .container1-title {
+      position: absolute;
+      color: white;
+      top: 30%;
+      left: 15%;
+      font-size: 50px;
+    }
+
+    @media screen and (max-width: 1000px) {
+      .container1-title {
+        font-size: 100%;
+        left: 10%;
+      }
+    }
+
+    .container1-text {
+      position: absolute;
+      color: white;
+      top: 35%;
+      left: 16%;
+      font-size: 50px;
+    }
+
+    @media screen and (max-width: 1000px) {
+      .container1-text {
+        font-size: 100%;
+        left: 10%;
+        top: 40%;
+      }
+    }
+
+    .container1-btn {
+      position: absolute;
+      color: black;
+      top: 48%;
+      left: 16%;
+      font-size: 20px;
+      background-color: #FCFCFC;
+      padding: 8px 16px;
+      border-radius: 5px;
+      text-decoration: none;
+    }
+
+    @media screen and (max-width: 1700px) {
+      .container1-btn {
+        font-size: 90%;
+        left: 10%;
+        top: 60%;
+        padding: 1.5% 4%;
+      }
+    }
+
+    /* ---------------- Container 2 ---------------- */
+    .container2 {
+      background-color: #1F1F1F;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .container2 h1 {
+      font-size: 36px;
+      margin-bottom: 8px;
+      line-height: 1.1;
+    }
+
+    .container2 p {
+      font-size: 12px;
+      margin: 4px 0;
+      line-height: 1.2;
+    }
+
+    @media screen and (max-width: 1000px) {
+      .container2 h1 {
+        font-size: 28px;
+      }
+
+      .container2 p {
+        font-size: 16px;
+      }
+    }
+
+    .cards-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .card {
+      background-color: #2A2A2A;
+      border-radius: 10px;
+      padding: 20px;
+      width: 220px;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    }
+
+    .card img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      font-size: 14px;
+      line-height: 1.4;
+    }
+
+    @media screen and (max-width: 800px) {
+      .cards-container {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .card {
+        width: 90%;
+      }
+    }
+
+    a.no-style {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* Bloc présentation */
+    .presentation-container {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      background-color: #303030;
+      color: white;
+      border-radius: 10px;
+      padding: 30px;
+      max-width: 95%;
+      margin: 50px auto;
+      box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
+      gap: 20px;
+    }
+
+    .presentation-photo img {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 3px solid #FCFCFC;
+    }
+
+    .presentation-text {
+      flex: 1;
+      min-width: 250px;
+    }
+
+    .presentation-text h2 {
+      font-size: 28px;
+      margin-bottom: 15px;
+    }
+
+    .presentation-text p {
+      font-size: 18px;
+      line-height: 1.5;
+    }
+
+    @media screen and (max-width: 800px) {
+      .presentation-container {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .presentation-photo img {
+        margin-bottom: 20px;
+      }
+    }
+
+    /* ---------------- Veille + Compétences ---------------- */
+    .veille-container,
+    .competences-container {
+      background-color: #303030;
+      color: white;
+      max-width: 95%;
+      margin: 50px auto;
+      padding: 40px;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    .veille-container h2,
+    .competences-container h2 {
+      font-size: 28px;
+      margin-bottom: 15px;
+    }
+
+    .veille-container p,
+    .competences-container p {
+      font-size: 18px;
+      margin-bottom: 25px;
+    }
+
+    .veille-button,
+    .competences-button {
+      display: inline-block;
+      width: 50px;
+      height: 50px;
+      line-height: 50px;
+      border-radius: 50%;
+      background-color: #FCFCFC;
+      color: #000;
+      font-size: 24px;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .veille-button:hover,
+    .competences-button:hover {
+      background-color: #FFD700;
+      color: #000;
+    }
+
+    @media screen and (max-width: 800px) {
+      .veille-container h2,
+      .competences-container h2 {
+        font-size: 24px;
+      }
+
+      .veille-container p,
+      .competences-container p {
+        font-size: 16px;
+      }
+
+      .veille-button,
+      .competences-button {
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        font-size: 20px;
+      }
+    }
+
+    /* ---------------- Contact ---------------- */
+    .contact-container {
+      background: linear-gradient(135deg, #1f1f1f, #2e2e2e, #1a1a1a);
+      color: white;
+      max-width: 95%;
+      margin: 60px auto;
+      padding: 50px 20px;
+      border-radius: 15px;
+      text-align: center;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+      animation: fadeIn 1s ease-in;
+    }
+
+    .contact-container h2 {
+      font-size: 30px;
+      margin-bottom: 15px;
+      position: relative;
+      display: inline-block;
+    }
+
+    .contact-container h2::after {
+      content: "";
+      display: block;
+      width: 60%;
+      margin: 8px auto 0;
+      height: 3px;
+      background: #FFD700;
+      border-radius: 2px;
+    }
+
+    .contact-container p {
+      font-size: 18px;
+      margin-bottom: 30px;
+      opacity: 0.9;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .social-links a {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      font-size: 22px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    }
+
+    .social-links a:hover {
+      transform: scale(1.15);
+      background: #FFD700;
+      color: #000;
+      box-shadow: 0 6px 20px rgba(255, 215, 0, 0.6);
+    }
+
+    .social-links .fb:hover {
+      background: #3b5998;
+      color: white;
+    }
+
+    .social-links .ig:hover {
+      background: #E1306C;
+      color: white;
+    }
+
+    .social-links .ln:hover {
+      background: #0077B5;
+      color: white;
+    }
+
+    .social-links .mail:hover {
+      background: #D44638;
+      color: white;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+  </style>
 </head>
+
 <body>
-    <div class="container1">
-        <h1 class="container1-title">Bonjour,</h1>
-        <p class="container1-text">Je suis Arena Randrianaina</p>
-        <a href="CV-Arena.pdf" class="container1-btn">Voir mon CV </a>
+  <div class="container1">
+    <h1 class="container1-title">Bonjour,</h1>
+    <p class="container1-text">Je suis Arena Randrianaina</p>
+    <a href="CV-Arena.pdf" class="container1-btn">Voir mon CV</a>
+  </div>
+
+  <div class="container2">
+    <h1>Bienvenue sur mon portfolio</h1>
+    <p>Je suis un étudiant en BTS SIO passionné par le développement web</p>
+    <p>Découvrez mes projets et compétences.</p>
+  </div>
+
+  <!-- Bloc présentation -->
+  <div class="presentation-container">
+    <div class="presentation-photo">
+      <img src="../images/Arena4.jpg" alt="Photo de Arena">
     </div>
-    <div class="container2">
-        <h1>Bienvenue sur mon portfolio</h1>
-        <p>Je suis un étudiant en BTS SIO passionné par le développement web</p>
-        <p>Découvrez mes projets et compétences.</p>
+    <div class="presentation-text">
+      <h2>À propos de moi</h2>
+      <p>Arena Randrianaina. Je suis un étudiant malgache à la MCCI business school à Maurice. J'ai commencé à développer
+        en 2024, en commençant par HTML, CSS. Aujourd'hui mes compétences sont variées avec du PHP, Javascript, Bootstrap,
+        Github,... <br>Pour en savoir plus sur moi, vous êtes libres de consulter mon CV.</p>
     </div>
-    <div class="presentation-container">
-        <div class="presentation-photo">
-            <img src="../images/Arena4.jpg" alt="Photo de Arena">
-        </div>
-        <div class="presentation-text">
-            <h2>À propos de moi</h2>
-            <p>Arena Randrianaina. Je suis un étudiant malgache à la MCCI business school à Maurice. J'ai commencé à développer en 2024, en commençant par HTML, CSS. Aujourd'hui mes compétences sont variées avec du PHP, Javascript, Bootstrap, Github,... <br>Pour en savoir plus sur moi, vous êtes libres de consulter mon CV.</p>
-        </div>
+  </div>
+
+  <!-- Bloc projets -->
+  <center><h1>Mes Projets</h1></center>
+  <div class="cards-container">
+    <a href="pages/Supercar.html" class="no-style">
+      <div class="card">
+        <img src="../images/barre-logo.PNG" alt="Projet 1">
+        <h3>Supercar</h3>
+        <p>Supercar est un site de concessionnaire permettant de réserver des essais et d’envoyer des messages. Les
+          données sont stockées en base (essais, contacts) et gérées via une interface admin. Front-end responsive avec
+          Bootstrap.</p>
+      </div>
+    </a>
+
+    <a href="pages/Gasik'art.html" class="no-style">
+      <div class="card">
+        <img src="../images/Gasik'Art.png" alt="Projet 2">
+        <h3>Stage Première année</h3>
+        <p>Stage : création d’une application de gestion de stock et de caisse pour une entreprise artisanale. Fonctions :
+          gérer produits, ventes, stock et accès admin sécurisé.</p>
+      </div>
+    </a>
+
+    <div class="card">
+      <img src="../images/Java.jpg" alt="Projet 3">
+      <h3>VMS</h3>
+      <p>VMS est une application java permettant de gérer une commande de bons d'achats.</p>
     </div>
 
-    <section class="projects-section">
-        <h2>Mes Projets</h2>
-        <div class="projects-grid">
-            <div class="project-card">
-                <img src="../images/barre-logo.PNG" alt="Projet 1">
-                <h3>Supercar</h3>
-                <p>Site de concessionnaire permettant de réserver des essais et d’envoyer des messages avec base de données et interface admin responsive.</p>
-            </div>
-            <div class="project-card">
-                <img src="../images/Gasik'Art.png" alt="Projet 2">
-                <h3>Stage Première année</h3>
-                <p>Application de gestion de stock et de caisse pour une entreprise artisanale : gestion des ventes, produits et utilisateurs sécurisée.</p>
-            </div>
-            <div class="project-card">
-                <img src="../images/Java.jpg" alt="Projet 3">
-                <h3>VMS</h3>
-                <p>Application Java de gestion de bons d'achat avec interface Swing intuitive.</p>
-            </div>
-        </div>
-    </section>
+    <div class="card">
+      <img src="https://via.placeholder.com/220x120" alt="Projet 4">
+      <h3>Stage 2</h3>
+      <p>Cette partie représente le stage de deuxième année qui reste encore à définir.</p>
+    </div>
+  </div>
 
-    <section class="skills-section">
-        <h2>Mes Compétences</h2>
-        <div class="skills-grid">
-            <div class="skill"><span>HTML / CSS</span><div class="bar"><div class="progress" style="--width: 95%"></div></div></div>
-            <div class="skill"><span>JavaScript</span><div class="bar"><div class="progress" style="--width: 80%"></div></div></div>
-            <div class="skill"><span>PHP / MySQL</span><div class="bar"><div class="progress" style="--width: 85%"></div></div></div>
-            <div class="skill"><span>Java</span><div class="bar"><div class="progress" style="--width: 70%"></div></div></div>
-            <div class="skill"><span>Bootstrap / GitHub</span><div class="bar"><div class="progress" style="--width: 90%"></div></div></div>
-        </div>
-    </section>
+  <!-- Bloc Compétences -->
+  <div class="competences-container">
+    <h2>Compétences</h2>
+    <p>Découvrez les langages, outils et frameworks que j'utilise.</p>
+    <a href="pages/competences.html" class="competences-button">&#8594;</a>
+  </div>
 
-    <section class="veille-section">
-        <h2>Veille Technologique</h2>
-        <p>Je reste informé des dernières tendances du développement web, de la cybersécurité et de l’IA afin d'améliorer mes projets et ma veille technique.</p>
-    </section>
+  <!-- Bloc Veille Technologique -->
+  <div class="veille-container">
+    <h2>Veille Technologique</h2>
+    <p>Restez à jour avec les dernières tendances et technologies que j'explore.</p>
+    <a href="veille.html" class="veille-button">&#8594;</a>
+  </div>
 
-    <section class="contact-section">
-        <h2>Contact</h2>
-        <form>
-            <input type="text" placeholder="Votre nom" required>
-            <input type="email" placeholder="Votre email" required>
-            <textarea placeholder="Votre message" required></textarea>
-            <button type="submit">Envoyer</button>
-        </form>
-    </section>
-
-    <footer>
-        <p>© 2025 Arena Randrianaina - Tous droits réservés</p>
-    </footer>
+  <!-- Bloc Contact -->
+  <div class="contact-container">
+    <h2>📩 Contactez-moi</h2>
+    <p>Envie de collaborer ou de discuter d’un projet ? Retrouvez-moi ici :</p>
+    <div class="social-links">
+      <a href="https://www.facebook.com/arena.randrianaina" target="_blank" class="fb">F</a>
+      <a href="https://www.instagram.com/arenaior/" target="_blank" class="ig">I</a>
+      <a href="https://linkedin.com" target="_blank" class="ln">L</a>
+      <a href="arenarandrianaina1@gmail.com" class="mail">✉</a>
+    </div>
+  </div>
 </body>
 </html>
