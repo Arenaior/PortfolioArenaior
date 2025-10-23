@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cards avec boutons</title>
+  <title>Projet Gasik'Art</title>
   <style>
     * {
       box-sizing: border-box;
@@ -12,99 +12,136 @@
     body {
       margin: 0;
       font-family: 'Arial', sans-serif;
-      background-color: #f4f4f4;
-      color: #333;
+      background-color: #f9f9f9; /* Fond clair */
+      color: #1F1F1F; /* Texte foncé */
+      padding: 20px;
     }
 
-    .container {
-      max-width: 1200px;
-      margin: 40px auto;
-      padding: 20px;
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #064635; /* Vert foncé accent */
+      font-size: 32px;
+    }
+
+    p.intro {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto 40px auto;
+      font-size: 16px;
+      line-height: 1.6;
+      color: #333;
     }
 
     .cards {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
+      gap: 25px;
+      max-width: 1100px;
+      margin: 0 auto;
     }
 
     .card {
-      background: white;
+      background: #e8f0e8; /* Vert très clair */
       border-radius: 16px;
       padding: 20px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      transition: transform 0.2s ease;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+      border-top: 4px solid #064635; /* Accent vert foncé */
     }
 
     .card:hover {
-      transform: translateY(-5px);
+      transform: translateY(-8px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.25);
     }
 
     .card h3 {
       margin-top: 0;
-      font-size: 22px;
-      color: #111;
+      font-size: 20px;
+      color: #064635; /* Vert foncé */
     }
 
     .card p {
       flex-grow: 1;
       font-size: 15px;
-      color: #555;
+      color: #1F1F1F;
+      margin: 10px 0 15px 0;
     }
 
     .card .btn {
-      margin-top: 20px;
-      background-color: #111;
+      margin-top: 10px;
+      background-color: #064635; /* Vert foncé */
       color: #fff;
-      padding: 10px 20px;
+      padding: 10px 18px;
       border: none;
       border-radius: 8px;
       text-decoration: none;
       text-align: center;
       font-size: 14px;
       cursor: pointer;
+      transition: 0.3s;
     }
 
     .card .btn:hover {
-      background-color: #333;
+      background-color: #04603d;
+      box-shadow: 0 6px 20px rgba(0,100,60,0.4);
+      transform: translateY(-3px);
+    }
+
+    .btn-home {
+      display: inline-block;
+      margin: 40px auto 20px auto;
+      background-color: #064635;
+      color: #fff;
+      padding: 12px 30px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .btn-home:hover {
+      background-color: #04603d;
+      box-shadow: 0 6px 20px rgba(0,100,60,0.4);
+      transform: translateY(-3px);
+    }
+
+    @media screen and (max-width: 600px) {
+      .cards {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <H1> Bienvenue dans le projet Gasik'Art</H1>
-    <br>
-    <p> Pendant mon stage chez Gasik'Art, j’ai développé une application de gestion de stock pour suivre les produits artisanaux, les ventes et les inventaires, en améliorant l’efficacité de la gestion quotidienne de l’entreprise. </p>
-    <br>
-    <div class="cards">
-      <div class="card">
-        <h3>Rapport de stage</h3>
-        <p>Le rapport de stage permet de voir les tâches accomplies</p>
-        <a href="../Rapport de stage .pdf" class="btn"> Voir le rapport</a>
-      </div>
+  <h1>Bienvenue dans le projet Gasik'Art</h1>
+  <p class="intro">Pendant mon stage chez Gasik'Art, j’ai développé une application de gestion de stock pour suivre les produits artisanaux, les ventes et les inventaires, en améliorant l’efficacité de la gestion quotidienne de l’entreprise.</p>
 
-      <div class="card">
-        <h3>Présentation</h3>
-        <p>La présentation du stage démontre les étapes faites pour accomplir ce stage</p>
-        <a href="../Arena BTS SIO 2 GASIKART.pptx.pdf" class="btn">Voir la présentation</a>
-      </div>
+  <div class="cards">
+    <div class="card">
+      <h3>Rapport de stage</h3>
+      <p>Le rapport de stage permet de voir les tâches accomplies.</p>
+      <a href="../Rapport de stage .pdf" class="btn">Voir le rapport</a>
+    </div>
 
-      <div class="card">
-        <h3>Projet</h3>
-        <p>Voir l'application et son fonctionnement </p>
-        <a href="#" class="btn">Gestion Caisse</a>
-      </div>
-      </div>
+    <div class="card">
+      <h3>Présentation</h3>
+      <p>La présentation du stage démontre les étapes faites pour accomplir ce stage.</p>
+      <a href="../Arena BTS SIO 2 GASIKART.pptx.pdf" class="btn">Voir la présentation</a>
+    </div>
+
+    <div class="card">
+      <h3>Projet</h3>
+      <p>Voir l'application et son fonctionnement.</p>
+      <a href="#" class="btn">Gestion Caisse</a>
     </div>
   </div>
 
-  <center> 
-    <!-- Bouton Retour Accueil -->
-<a href="../index.html" class="btn-home">Retour à l'accueil</a>
+  <center>
+    <a href="../index.html" class="btn-home">Retour à l'accueil</a>
   </center>
-
 </body>
 </html>
