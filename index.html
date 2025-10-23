@@ -7,16 +7,20 @@
 
   <style>
     body {
-      background-color: #1F1F1F;
-      font-family: Arial;
+      background-color: #121212;
+      font-family: "Poppins", Arial, sans-serif;
       color: white;
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
     }
 
+    /* SECTION ACCUEIL */
     .container1 {
       background-image: url("../images/p1.JPEG");
       background-size: cover;
       background-repeat: no-repeat;
-      height: 500px0vh;
+      height: 100vh;
       aspect-ratio: 25 / 15;
       position: relative;
       overflow: hidden;
@@ -30,19 +34,11 @@
       animation: slideIn 1s forwards;
     }
 
-    .container1 p {
-      animation-delay: 0.3s;
-    }
-
-    .container1 a {
-      animation-delay: 0.6s;
-    }
+    .container1 p { animation-delay: 0.3s; }
+    .container1 a { animation-delay: 0.6s; }
 
     @keyframes slideIn {
-      to {
-        transform: translateX(0);
-        opacity: 1;
-      }
+      to { transform: translateX(0); opacity: 1; }
     }
 
     .container1-title {
@@ -53,144 +49,100 @@
       font-size: 50px;
     }
 
-    @media screen and (max-width: 1000px) {
-      .container1-title {
-        font-size: 100%;
-        left: 10%;
-      }
-    }
-
     .container1-text {
       position: absolute;
       color: white;
-      top: 35%;
+      top: 38%;
       left: 16%;
-      font-size: 50px;
-    }
-
-    @media screen and (max-width: 1000px) {
-      .container1-text {
-        font-size: 100%;
-        left: 10%;
-        top: 40%;
-      }
+      font-size: 28px;
     }
 
     .container1-btn {
       position: absolute;
-      color: black;
-      top: 48%;
+      top: 50%;
       left: 16%;
-      font-size: 20px;
-      background-color: #FCFCFC;
-      padding: 8px 16px;
-      border-radius: 5px;
-      text-decoration: none;
-    }
-
-    @media screen and (max-width: 1700px) {
-      .container1-btn {
-        font-size: 90%;
-        left: 10%;
-        top: 60%;
-        padding: 1.5% 4%;
-      }
-    }
-
-    .container2 {
-      background-color: #1F1F1F;
+      background-color: #ff4d6d;
       color: white;
-      padding: 20px;
+      font-weight: bold;
+      padding: 12px 25px;
+      border-radius: 30px;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .container1-btn:hover {
+      background-color: #ff758f;
+      box-shadow: 0 0 15px #ff4d6d;
+    }
+
+    /* SECTION 2 */
+    .container2 {
+      background-color: #1a1a1a;
+      color: white;
       text-align: center;
+      padding: 60px 20px;
     }
 
     .container2 h1 {
       font-size: 36px;
-      margin-bottom: 8px;
-      line-height: 1.1;
+      color: #ff4d6d;
+      margin-bottom: 10px;
     }
 
     .container2 p {
-      font-size: 12px;
-      margin: 4px 0;
-      line-height: 1.2;
+      font-size: 16px;
+      color: #f1f1f1;
     }
 
-    @media screen and (max-width: 1000px) {
-      .container2 h1 {
-        font-size: 28px;
-      }
-
-      .container2 p {
-        font-size: 16px;
-      }
-    }
-
+    /* A PROPOS */
     .presentation-container {
       display: flex;
       flex-wrap: wrap;
       align-items: center;
-      background-color: #303030;
+      background-color: #1e1e1e;
       color: white;
-      border-radius: 10px;
-      padding: 30px;
+      border-radius: 12px;
+      padding: 40px;
       max-width: 95%;
       margin: 50px auto;
-      box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
-      gap: 20px;
+      box-shadow: 0 6px 25px rgba(0, 0, 0, 0.3);
+      gap: 30px;
     }
 
     .presentation-photo img {
-      width: 200px;
-      height: 200px;
+      width: 220px;
+      height: 220px;
       object-fit: cover;
       border-radius: 50%;
-      border: 3px solid #FCFCFC;
-    }
-
-    .presentation-text {
-      flex: 1;
-      min-width: 250px;
+      border: 3px solid #ff4d6d;
+      box-shadow: 0 0 15px rgba(255, 77, 109, 0.3);
     }
 
     .presentation-text h2 {
       font-size: 28px;
+      color: #ff4d6d;
       margin-bottom: 15px;
     }
 
     .presentation-text p {
       font-size: 18px;
-      line-height: 1.5;
+      line-height: 1.6;
+      color: #f0f0f0;
     }
 
-    @media screen and (max-width: 800px) {
-      .presentation-container {
-        flex-direction: column;
-        text-align: center;
-      }
-
-      .presentation-photo img {
-        margin-bottom: 20px;
-      }
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    /* 🔥 Nouveau design à partir d’ici */
+    /* TITRES DE SECTIONS */
     .section-title {
       text-align: center;
       font-size: 38px;
-      color: #FFD700;
+      color: #ff4d6d;
       margin-top: 60px;
       margin-bottom: 40px;
-      text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+      text-shadow: 0 0 12px rgba(255, 77, 109, 0.3);
     }
 
+    /* PROJETS */
     .projects-section {
-      background-color: #1f1f1f;
+      background-color: #141414;
       padding-bottom: 70px;
     }
 
@@ -204,18 +156,17 @@
     }
 
     .project-card {
-      background: #2A2A2A;
+      background: #1e1e1e;
       border-radius: 15px;
       overflow: hidden;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-      text-decoration: none;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
       color: white;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     .project-card:hover {
       transform: translateY(-10px);
-      box-shadow: 0 8px 30px rgba(255, 215, 0, 0.2);
+      box-shadow: 0 0 20px #ff4d6d;
     }
 
     .project-card img {
@@ -229,7 +180,7 @@
     }
 
     .card-content h3 {
-      color: #FFD700;
+      color: #ff758f;
       margin-bottom: 10px;
     }
 
@@ -238,30 +189,26 @@
       opacity: 0.9;
     }
 
+    /* COMPÉTENCES / VEILLE */
     .competences-section, .veille-section {
-      background: linear-gradient(145deg, #252525, #2f2f2f);
+      background: linear-gradient(145deg, #1a1a1a, #232323);
       margin: 60px auto;
       border-radius: 15px;
       padding: 60px 20px;
       max-width: 900px;
       text-align: center;
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
     }
 
     .section-inner h2 {
       font-size: 30px;
-      color: #FFD700;
+      color: #ff4d6d;
       margin-bottom: 15px;
     }
 
-    .section-inner p {
-      font-size: 18px;
-      margin-bottom: 25px;
-    }
-
     .btn-next {
-      background-color: #FFD700;
-      color: #000;
+      background-color: #ff4d6d;
+      color: white;
       font-weight: bold;
       padding: 12px 24px;
       border-radius: 30px;
@@ -270,14 +217,14 @@
     }
 
     .btn-next:hover {
-      background-color: #fff;
-      color: #000;
-      box-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
+      background-color: #ff758f;
+      box-shadow: 0 0 15px #ff4d6d;
     }
 
+    /* CONTACT */
     .contact-modern {
       text-align: center;
-      background: linear-gradient(135deg, #1f1f1f, #2e2e2e);
+      background: linear-gradient(135deg, #181818, #232323);
       padding: 70px 20px;
       border-radius: 15px;
       max-width: 900px;
@@ -287,14 +234,8 @@
 
     .contact-modern h2 {
       font-size: 32px;
-      color: #FFD700;
+      color: #ff4d6d;
       margin-bottom: 15px;
-    }
-
-    .contact-modern p {
-      font-size: 18px;
-      opacity: 0.85;
-      margin-bottom: 40px;
     }
 
     .social-grid {
@@ -307,37 +248,26 @@
     .social-grid a {
       padding: 12px 24px;
       border-radius: 30px;
-      background-color: #2A2A2A;
+      background-color: #1e1e1e;
       color: white;
       font-weight: bold;
+      border: 1px solid #ff4d6d;
       transition: 0.3s;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
     }
 
     .social-grid a:hover {
-      background-color: #FFD700;
-      color: #000;
+      background-color: #ff4d6d;
+      color: #121212;
       transform: translateY(-4px);
-      box-shadow: 0 6px 25px rgba(255, 215, 0, 0.5);
+      box-shadow: 0 0 20px #ff4d6d;
     }
 
-    @media screen and (max-width: 600px) {
-      .card-content p {
-        font-size: 14px;
-      }
-
-      .btn-next {
-        font-size: 14px;
-        padding: 10px 20px;
-      }
-
-      .contact-modern h2 {
-        font-size: 26px;
-      }
-
-      .section-title {
-        font-size: 28px;
-      }
+    @media screen and (max-width: 800px) {
+      .presentation-container { flex-direction: column; text-align: center; }
+      .presentation-photo img { margin-bottom: 20px; }
+      .section-title { font-size: 30px; }
+      .container1-title { font-size: 36px; left: 10%; }
+      .container1-text { font-size: 22px; left: 10%; }
     }
   </style>
 </head>
@@ -345,14 +275,14 @@
 <body>
   <div class="container1">
     <h1 class="container1-title">Bonjour,</h1>
-    <p class="container1-text">Je suis Arena Randrianaina</p>
+    <p class="container1-text">Je suis <span style="color:#ff4d6d;">Arena Randrianaina</span></p>
     <a href="CV-Arena.pdf" class="container1-btn">Voir mon CV</a>
   </div>
 
   <div class="container2">
     <h1>Bienvenue sur mon portfolio</h1>
-    <p>Je suis un étudiant en BTS SIO passionné par le développement web</p>
-    <p>Découvrez mes projets et compétences.</p>
+    <p>Étudiant en BTS SIO, passionné par le développement web et le design.</p>
+    <p>Découvrez mes projets, compétences et ma veille technologique.</p>
   </div>
 
   <div class="presentation-container">
@@ -361,13 +291,12 @@
     </div>
     <div class="presentation-text">
       <h2>À propos de moi</h2>
-      <p>Arena Randrianaina. Je suis un étudiant malgache à la MCCI business school à Maurice. J'ai commencé à développer
-        en 2024, en commençant par HTML, CSS. Aujourd'hui mes compétences sont variées avec du PHP, Javascript, Bootstrap,
-        Github,... <br>Pour en savoir plus sur moi, vous êtes libres de consulter mon CV.</p>
+      <p>Je suis Arena Randrianaina, étudiant malgache à la MCCI Business School à Maurice.  
+      J’ai commencé à développer en 2024, d’abord avec HTML et CSS. Aujourd’hui, j’explore PHP, JavaScript, Bootstrap et GitHub.  
+      Mon objectif est de créer des interfaces modernes, élégantes et efficaces.</p>
     </div>
   </div>
 
-  <!-- 🔥 Nouvelle version design -->
   <section class="projects-section">
     <h1 class="section-title">💼 Mes Projets</h1>
     <div class="cards-grid">
@@ -375,15 +304,15 @@
         <img src="../images/barre-logo.PNG" alt="Projet 1">
         <div class="card-content">
           <h3>Supercar</h3>
-          <p>Site de concessionnaire permettant la réservation d’essais et l’envoi de messages. Données gérées via une interface admin, design responsive avec Bootstrap.</p>
+          <p>Site de concessionnaire automobile avec interface d’administration, réservation d’essais et design responsive.</p>
         </div>
       </a>
 
       <a href="pages/Gasik'art.html" class="project-card">
         <img src="../images/Gasik'Art.png" alt="Projet 2">
         <div class="card-content">
-          <h3>Stage Première année</h3>
-          <p>Création d’une application de gestion de stock et de caisse pour une entreprise artisanale. Accès admin sécurisé et suivi des ventes.</p>
+          <h3>Gasik’Art</h3>
+          <p>Application de gestion de stock et de caisse pour une entreprise artisanale, développée durant mon stage.</p>
         </div>
       </a>
 
@@ -391,15 +320,7 @@
         <img src="../images/Java.jpg" alt="Projet 3">
         <div class="card-content">
           <h3>VMS</h3>
-          <p>Application Java permettant de gérer une commande de bons d'achat avec interface simple et fluide.</p>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <img src="https://via.placeholder.com/220x120" alt="Projet 4">
-        <div class="card-content">
-          <h3>Stage 2</h3>
-          <p>Représente le futur projet de deuxième année, encore à venir...</p>
+          <p>Application Java permettant de gérer les commandes et bons d'achat d'une entreprise locale.</p>
         </div>
       </div>
     </div>
@@ -416,7 +337,7 @@
   <section class="veille-section">
     <div class="section-inner">
       <h2>📰 Veille Technologique</h2>
-      <p>Restez à jour avec les dernières tendances et technologies que j’explore.</p>
+      <p>Restez à jour avec les technologies que j’explore et les tendances du web.</p>
       <a href="veille.html" class="btn-next">Découvrir →</a>
     </div>
   </section>
@@ -425,10 +346,10 @@
     <h2>📩 Contactez-moi</h2>
     <p>Envie de collaborer ou d’échanger sur un projet ? Retrouvez-moi ici :</p>
     <div class="social-grid">
-      <a href="https://www.facebook.com/arena.randrianaina" target="_blank" class="fb">Facebook</a>
-      <a href="https://www.instagram.com/arenaior/" target="_blank" class="ig">Instagram</a>
-      <a href="https://linkedin.com" target="_blank" class="ln">LinkedIn</a>
-      <a href="mailto:arenarandrianaina1@gmail.com" class="mail">Email</a>
+      <a href="https://facebook.com/arena.randrianaina" target="_blank">Facebook</a>
+      <a href="https://instagram.com/arenaior" target="_blank">Instagram</a>
+      <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+      <a href="mailto:arenarandrianaina1@gmail.com">Email</a>
     </div>
   </section>
 </body>
