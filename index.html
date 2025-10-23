@@ -22,7 +22,6 @@
       overflow: hidden;
     }
 
-    /* Animation depuis la gauche */
     .container1 h1,
     .container1 p,
     .container1 a {
@@ -98,7 +97,6 @@
       }
     }
 
-    /* ---------------- Container 2 ---------------- */
     .container2 {
       background-color: #1F1F1F;
       color: white;
@@ -128,60 +126,6 @@
       }
     }
 
-    .cards-container {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      justify-content: center;
-    }
-
-    .card {
-      background-color: #2A2A2A;
-      border-radius: 10px;
-      padding: 20px;
-      width: 220px;
-      text-align: center;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
-    }
-
-    .card img {
-      width: 100%;
-      border-radius: 10px;
-      margin-bottom: 15px;
-    }
-
-    .card h3 {
-      margin-bottom: 10px;
-    }
-
-    .card p {
-      font-size: 14px;
-      line-height: 1.4;
-    }
-
-    @media screen and (max-width: 800px) {
-      .cards-container {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .card {
-        width: 90%;
-      }
-    }
-
-    a.no-style {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    /* Bloc présentation */
     .presentation-container {
       display: flex;
       flex-wrap: wrap;
@@ -230,170 +174,170 @@
       }
     }
 
-    /* ---------------- Veille + Compétences ---------------- */
-    .veille-container,
-    .competences-container {
-      background-color: #303030;
-      color: white;
-      max-width: 95%;
-      margin: 50px auto;
-      padding: 40px;
-      border-radius: 10px;
-      text-align: center;
-      box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
+    a {
+      color: inherit;
+      text-decoration: none;
     }
 
-    .veille-container h2,
-    .competences-container h2 {
-      font-size: 28px;
+    /* 🔥 Nouveau design à partir d’ici */
+    .section-title {
+      text-align: center;
+      font-size: 38px;
+      color: #FFD700;
+      margin-top: 60px;
+      margin-bottom: 40px;
+      text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+    }
+
+    .projects-section {
+      background-color: #1f1f1f;
+      padding-bottom: 70px;
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 30px;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .project-card {
+      background: #2A2A2A;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      text-decoration: none;
+      color: white;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 30px rgba(255, 215, 0, 0.2);
+    }
+
+    .project-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .card-content {
+      padding: 20px;
+    }
+
+    .card-content h3 {
+      color: #FFD700;
+      margin-bottom: 10px;
+    }
+
+    .card-content p {
+      font-size: 15px;
+      opacity: 0.9;
+    }
+
+    .competences-section, .veille-section {
+      background: linear-gradient(145deg, #252525, #2f2f2f);
+      margin: 60px auto;
+      border-radius: 15px;
+      padding: 60px 20px;
+      max-width: 900px;
+      text-align: center;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+    }
+
+    .section-inner h2 {
+      font-size: 30px;
+      color: #FFD700;
       margin-bottom: 15px;
     }
 
-    .veille-container p,
-    .competences-container p {
+    .section-inner p {
       font-size: 18px;
       margin-bottom: 25px;
     }
 
-    .veille-button,
-    .competences-button {
-      display: inline-block;
-      width: 50px;
-      height: 50px;
-      line-height: 50px;
-      border-radius: 50%;
-      background-color: #FCFCFC;
+    .btn-next {
+      background-color: #FFD700;
       color: #000;
-      font-size: 24px;
+      font-weight: bold;
+      padding: 12px 24px;
+      border-radius: 30px;
       text-decoration: none;
       transition: 0.3s;
     }
 
-    .veille-button:hover,
-    .competences-button:hover {
-      background-color: #FFD700;
+    .btn-next:hover {
+      background-color: #fff;
       color: #000;
+      box-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
     }
 
-    @media screen and (max-width: 800px) {
-      .veille-container h2,
-      .competences-container h2 {
-        font-size: 24px;
-      }
-
-      .veille-container p,
-      .competences-container p {
-        font-size: 16px;
-      }
-
-      .veille-button,
-      .competences-button {
-        width: 40px;
-        height: 40px;
-        line-height: 40px;
-        font-size: 20px;
-      }
-    }
-
-    /* ---------------- Contact ---------------- */
-    .contact-container {
-      background: linear-gradient(135deg, #1f1f1f, #2e2e2e, #1a1a1a);
-      color: white;
-      max-width: 95%;
-      margin: 60px auto;
-      padding: 50px 20px;
-      border-radius: 15px;
+    .contact-modern {
       text-align: center;
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
-      animation: fadeIn 1s ease-in;
+      background: linear-gradient(135deg, #1f1f1f, #2e2e2e);
+      padding: 70px 20px;
+      border-radius: 15px;
+      max-width: 900px;
+      margin: 80px auto;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
     }
 
-    .contact-container h2 {
-      font-size: 30px;
+    .contact-modern h2 {
+      font-size: 32px;
+      color: #FFD700;
       margin-bottom: 15px;
-      position: relative;
-      display: inline-block;
     }
 
-    .contact-container h2::after {
-      content: "";
-      display: block;
-      width: 60%;
-      margin: 8px auto 0;
-      height: 3px;
-      background: #FFD700;
-      border-radius: 2px;
-    }
-
-    .contact-container p {
+    .contact-modern p {
       font-size: 18px;
-      margin-bottom: 30px;
-      opacity: 0.9;
+      opacity: 0.85;
+      margin-bottom: 40px;
     }
 
-    .social-links {
+    .social-grid {
       display: flex;
       justify-content: center;
+      flex-wrap: wrap;
       gap: 20px;
     }
 
-    .social-links a {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 55px;
-      height: 55px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.1);
+    .social-grid a {
+      padding: 12px 24px;
+      border-radius: 30px;
+      background-color: #2A2A2A;
       color: white;
-      font-size: 22px;
-      text-decoration: none;
-      transition: all 0.3s ease;
+      font-weight: bold;
+      transition: 0.3s;
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
     }
 
-    .social-links a:hover {
-      transform: scale(1.15);
-      background: #FFD700;
+    .social-grid a:hover {
+      background-color: #FFD700;
       color: #000;
-      box-shadow: 0 6px 20px rgba(255, 215, 0, 0.6);
+      transform: translateY(-4px);
+      box-shadow: 0 6px 25px rgba(255, 215, 0, 0.5);
     }
 
-    .social-links .fb:hover {
-      background: #3b5998;
-      color: white;
-    }
-
-    .social-links .ig:hover {
-      background: #E1306C;
-      color: white;
-    }
-
-    .social-links .ln:hover {
-      background: #0077B5;
-      color: white;
-    }
-
-    .social-links .mail:hover {
-      background: #D44638;
-      color: white;
-    }
-
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
+    @media screen and (max-width: 600px) {
+      .card-content p {
+        font-size: 14px;
       }
 
-      to {
-        opacity: 1;
-        transform: translateY(0);
+      .btn-next {
+        font-size: 14px;
+        padding: 10px 20px;
       }
-    }
 
-    a {
-      color: inherit;
-      text-decoration: none;
+      .contact-modern h2 {
+        font-size: 26px;
+      }
+
+      .section-title {
+        font-size: 28px;
+      }
     }
   </style>
 </head>
@@ -411,7 +355,6 @@
     <p>Découvrez mes projets et compétences.</p>
   </div>
 
-  <!-- Bloc présentation -->
   <div class="presentation-container">
     <div class="presentation-photo">
       <img src="../images/Arena4.jpg" alt="Photo de Arena">
@@ -424,65 +367,69 @@
     </div>
   </div>
 
-  <!-- Bloc projets -->
-  <center><h1>Mes Projets</h1></center>
-  <div class="cards-container">
-    <a href="pages/Supercar.html" class="no-style">
-      <div class="card">
+  <!-- 🔥 Nouvelle version design -->
+  <section class="projects-section">
+    <h1 class="section-title">💼 Mes Projets</h1>
+    <div class="cards-grid">
+      <a href="pages/Supercar.html" class="project-card">
         <img src="../images/barre-logo.PNG" alt="Projet 1">
-        <h3>Supercar</h3>
-        <p>Supercar est un site de concessionnaire permettant de réserver des essais et d’envoyer des messages. Les
-          données sont stockées en base (essais, contacts) et gérées via une interface admin. Front-end responsive avec
-          Bootstrap.</p>
-      </div>
-    </a>
+        <div class="card-content">
+          <h3>Supercar</h3>
+          <p>Site de concessionnaire permettant la réservation d’essais et l’envoi de messages. Données gérées via une interface admin, design responsive avec Bootstrap.</p>
+        </div>
+      </a>
 
-    <a href="pages/Gasik'art.html" class="no-style">
-      <div class="card">
+      <a href="pages/Gasik'art.html" class="project-card">
         <img src="../images/Gasik'Art.png" alt="Projet 2">
-        <h3>Stage Première année</h3>
-        <p>Stage : création d’une application de gestion de stock et de caisse pour une entreprise artisanale. Fonctions :
-          gérer produits, ventes, stock et accès admin sécurisé.</p>
+        <div class="card-content">
+          <h3>Stage Première année</h3>
+          <p>Création d’une application de gestion de stock et de caisse pour une entreprise artisanale. Accès admin sécurisé et suivi des ventes.</p>
+        </div>
+      </a>
+
+      <div class="project-card">
+        <img src="../images/Java.jpg" alt="Projet 3">
+        <div class="card-content">
+          <h3>VMS</h3>
+          <p>Application Java permettant de gérer une commande de bons d'achat avec interface simple et fluide.</p>
+        </div>
       </div>
-    </a>
 
-    <div class="card">
-      <img src="../images/Java.jpg" alt="Projet 3">
-      <h3>VMS</h3>
-      <p>VMS est une application java permettant de gérer une commande de bons d'achats.</p>
+      <div class="project-card">
+        <img src="https://via.placeholder.com/220x120" alt="Projet 4">
+        <div class="card-content">
+          <h3>Stage 2</h3>
+          <p>Représente le futur projet de deuxième année, encore à venir...</p>
+        </div>
+      </div>
     </div>
+  </section>
 
-    <div class="card">
-      <img src="https://via.placeholder.com/220x120" alt="Projet 4">
-      <h3>Stage 2</h3>
-      <p>Cette partie représente le stage de deuxième année qui reste encore à définir.</p>
+  <section class="competences-section">
+    <div class="section-inner">
+      <h2>🧠 Compétences</h2>
+      <p>Découvrez les langages, outils et frameworks que j’utilise.</p>
+      <a href="pages/competences.html" class="btn-next">Explorer →</a>
     </div>
-  </div>
+  </section>
 
-  <!-- Bloc Compétences -->
-  <div class="competences-container">
-    <h2>Compétences</h2>
-    <p>Découvrez les langages, outils et frameworks que j'utilise.</p>
-    <a href="pages/competences.html" class="competences-button">&#8594;</a>
-  </div>
+  <section class="veille-section">
+    <div class="section-inner">
+      <h2>📰 Veille Technologique</h2>
+      <p>Restez à jour avec les dernières tendances et technologies que j’explore.</p>
+      <a href="veille.html" class="btn-next">Découvrir →</a>
+    </div>
+  </section>
 
-  <!-- Bloc Veille Technologique -->
-  <div class="veille-container">
-    <h2>Veille Technologique</h2>
-    <p>Restez à jour avec les dernières tendances et technologies que j'explore.</p>
-    <a href="veille.html" class="veille-button">&#8594;</a>
-  </div>
-
-  <!-- Bloc Contact -->
-  <div class="contact-container">
+  <section class="contact-modern">
     <h2>📩 Contactez-moi</h2>
-    <p>Envie de collaborer ou de discuter d’un projet ? Retrouvez-moi ici :</p>
-    <div class="social-links">
-      <a href="https://www.facebook.com/arena.randrianaina" target="_blank" class="fb">F</a>
-      <a href="https://www.instagram.com/arenaior/" target="_blank" class="ig">I</a>
-      <a href="https://linkedin.com" target="_blank" class="ln">L</a>
-      <a href="arenarandrianaina1@gmail.com" class="mail">✉</a>
+    <p>Envie de collaborer ou d’échanger sur un projet ? Retrouvez-moi ici :</p>
+    <div class="social-grid">
+      <a href="https://www.facebook.com/arena.randrianaina" target="_blank" class="fb">Facebook</a>
+      <a href="https://www.instagram.com/arenaior/" target="_blank" class="ig">Instagram</a>
+      <a href="https://linkedin.com" target="_blank" class="ln">LinkedIn</a>
+      <a href="mailto:arenarandrianaina1@gmail.com" class="mail">Email</a>
     </div>
-  </div>
+  </section>
 </body>
 </html>
