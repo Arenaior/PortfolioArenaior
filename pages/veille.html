@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Veille Technologique - IA</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      background-color: #0b3d2e;
+      color: white;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 38px;
+      color: #a8e6cf;
+      margin-top: 40px;
+      margin-bottom: 20px;
+    }
+
+    p.intro {
+      max-width: 800px;
+      margin: 0 auto 40px auto;
+      font-size: 18px;
+      text-align: center;
+      line-height: 1.5;
+      color: #d9f0e0;
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 30px;
+      max-width: 1200px;
+      margin: 0 auto 60px auto;
+      padding: 0 20px;
+    }
+
+    .project-card {
+      background: #14532d;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      color: white;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      text-align: center;
+    }
+
+    .project-card img {
+      width: 100%;
+      height: 150px;
+      object-fit: contain;
+      background: #07251b;
+    }
+
+    .card-content {
+      padding: 20px;
+    }
+
+    .card-content h3 {
+      margin-bottom: 10px;
+      color: #a8e6cf;
+    }
+
+    .card-content p {
+      font-size: 14px;
+      opacity: 0.9;
+      margin-bottom: 15px;
+    }
+
+    .btn-next {
+      background-color: #a8e6cf;
+      color: #0b3d2e;
+      font-weight: bold;
+      padding: 10px 20px;
+      border-radius: 30px;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .btn-next:hover {
+      background-color: #fff;
+      color: #14532d;
+      box-shadow: 0 0 15px rgba(168,230,207,0.6);
+    }
+
+    .btn-home {
+      display: inline-block;
+      margin: 40px auto 60px auto;
+      padding: 12px 30px;
+      background-color: #a8e6cf;
+      color: #0b3d2e;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .btn-home:hover {
+      background-color: #fff;
+      color: #14532d;
+      box-shadow: 0 0 15px rgba(168,230,207,0.6);
+    }
+
+    @media screen and (max-width: 600px) {
+      h1 { font-size: 28px; }
+      p.intro { font-size: 16px; }
+    }
+  </style>
+</head>
+<body>
+  <h1>🤖 Veille Technologique - Intelligence Artificielle</h1>
+  <p class="intro">
+    Découvrez les outils et plateformes d’IA les plus intéressants pour générer du texte, des images ou faciliter le développement. 
+    Cette veille me permet de rester à jour sur les dernières technologies et tendances du domaine.
+  </p>
+
+  <div class="cards-grid">
+    <!-- Génération de texte -->
+    <div class="project-card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg" alt="ChatGPT">
+      <div class="card-content">
+        <h3>ChatGPT</h3>
+        <p>IA générative capable de produire du texte, répondre à des questions, rédiger des articles ou du code.</p>
+        <a href="https://chat.openai.com/" target="_blank" class="btn-next">Voir le site →</a>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/0/0e/DALL-E_logo.png" alt="DALL·E">
+      <div class="card-content">
+        <h3>DALL·E</h3>
+        <p>IA générative d’images à partir de texte, très utile pour créer des visuels rapidement.</p>
+        <a href="https://openai.com/dall-e" target="_blank" class="btn-next">Voir le site →</a>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/GitHub-Mark.png" alt="GitHub Copilot">
+      <div class="card-content">
+        <h3>GitHub Copilot</h3>
+        <p>Assistant IA pour générer du code automatiquement et suggérer des solutions en temps réel.</p>
+        <a href="https://github.com/features/copilot" target="_blank" class="btn-next">Voir le site →</a>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/9/9f/MidJourney_Logo.png" alt="MidJourney">
+      <div class="card-content">
+        <h3>MidJourney</h3>
+        <p>Outil IA pour créer des images artistiques à partir de prompts textuels.</p>
+        <a href="https://www.midjourney.com/" target="_blank" class="btn-next">Voir le site →</a>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/c/c7/Canva_Logo.png" alt="Canva AI">
+      <div class="card-content">
+        <h3>Canva AI</h3>
+        <p>Permet de créer des visuels et vidéos rapidement grâce à l’intelligence artificielle.</p>
+        <a href="https://www.canva.com/fr_fr/ai/" target="_blank" class="btn-next">Voir le site →</a>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/3/3d/Notion-logo.svg" alt="Notion AI">
+      <div class="card-content">
+        <h3>Notion AI</h3>
+        <p>Outil de productivité qui utilise l’IA pour rédiger, résumer et organiser des contenus.</p>
+        <a href="https://www.notion.so/product/ai" target="_blank" class="btn-next">Voir le site →</a>
+      </div>
+    </div>
+  </div>
+
+  <center>
+    <a href="index.html" class="btn-home">Retour à l'accueil</a>
+  </center>
+</body>
+</html>

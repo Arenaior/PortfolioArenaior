@@ -157,6 +157,48 @@
     line-height: 1.4;
   }
 
+  /* ---------------- Animations Projets avec effet Scroll ---------------- */
+  .hidden {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 1s ease-out;
+  }
+
+  .show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @keyframes slideFromLeft {
+    0% {
+      opacity: 0;
+      transform: translateX(-80px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes slideFromRight {
+    0% {
+      opacity: 0;
+      transform: translateX(80px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  .slide-left.show {
+    animation: slideFromLeft 1s ease forwards;
+  }
+
+  .slide-right.show {
+    animation: slideFromRight 1s ease forwards;
+  }
+
   /* ---------------- Compétences et Veille ---------------- */
   .info-section {
     max-width: 900px;
@@ -284,21 +326,23 @@
 <!-- Projets -->
 <h2 class="section-title">💼 Mes Projets</h2>
 <div class="projects-grid">
-  <a href="pages/Supercar.html" class="project-card">
+  <a href="pages/Supercar.html" class="project-card slide-left hidden">
     <img src="../images/voitures.jpg" alt="Supercar">
     <div class="project-content">
       <h3>Supercar</h3>
       <p>Site de concessionnaire avec réservation d’essais et messages. Interface admin, responsive avec Bootstrap.</p>
     </div>
   </a>
-  <a href="pages/Gasik'art.html" class="project-card">
+
+  <a href="pages/Gasik'art.html" class="project-card slide-right hidden">
     <img src="../images/stage1.jpg" alt="Stage 1">
     <div class="project-content">
       <h3>Stage 1</h3>
       <p>Application de gestion de stock et caisse pour entreprise artisanale avec accès admin sécurisé.</p>
     </div>
   </a>
-  <div class="project-card">
+
+  <div class="project-card slide-left hidden">
     <img src="../images/voucher.jpg" alt="VMS">
     <div class="project-content">
       <h3>VMS</h3>
@@ -318,7 +362,7 @@
 <div class="info-section">
   <h2>📰 Veille Technologique</h2>
   <p>Restez à jour avec les dernières tendances et technologies que j’explore.</p>
-  <a href="veille.html" class="btn-next">Découvrir →</a>
+  <a href="pages/veille.html" class="btn-next">Découvrir →</a>
 </div>
 
 <!-- Contact -->
@@ -332,6 +376,22 @@
     <a href="mailto:arenarandrianaina1@gmail.com">Email</a>
   </div>
 </div>
+
+<!-- Script Scroll Animation -->
+<script>
+  const hiddenElements = document.querySelectorAll('.hidden');
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.2 });
+
+  hiddenElements.forEach(el => observer.observe(el));
+</script>
 
 </body>
 </html>
