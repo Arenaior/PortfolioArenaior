@@ -298,6 +298,25 @@
       font-size: 14px;
     }
   }
+
+  @media screen and (max-width: 800px) {
+    .projects-grid {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    .project-card img {
+      height: 140px;
+    }
+
+    .project-content h3 {
+      font-size: 18px;
+    }
+
+    .project-content p {
+      font-size: 14px;
+    }
+  }
 </style>
 </head>
 <body>
@@ -359,10 +378,41 @@
 </div>
 
 <!-- Veille Technologique -->
+<!-- Veille Technologique -->
 <div class="info-section">
-  <h2>📰 Veille Technologique</h2>
-  <p>Restez à jour avec les dernières tendances et technologies que j’explore.</p>
-  <a href="pages/veille.html" class="btn-next">Découvrir →</a>
+  <h2>📰 Veille Technologique - IA Générative</h2>
+  <p>
+    Je me tiens informé des dernières tendances en Intelligence Artificielle générative grâce à plusieurs méthodes de veille.
+  </p>
+
+  <div class="projects-grid">
+    <!-- Google Alerts -->
+    <div class="project-card slide-left hidden">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/4/4a/Google_Alerts_icon.svg" alt="Google Alerts">
+      <div class="project-content">
+        <h3>Google Alerts</h3>
+        <p>Recevez directement par email les derniers articles et actualités sur vos mots-clés (ex : ChatGPT, IA générative).</p>
+      </div>
+    </div>
+
+    <!-- Flux RSS -->
+    <div class="project-card slide-right hidden">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/4/43/Rss_feed_icon.svg" alt="Flux RSS">
+      <div class="project-content">
+        <h3>Flux RSS</h3>
+        <p>Centralisation des articles et publications de blogs et sites spécialisés dans un lecteur comme Feedly ou Inoreader.</p>
+      </div>
+    </div>
+
+    <!-- Notion / Bloc de synthèse -->
+    <div class="project-card slide-left hidden">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/3/3d/Notion-logo.svg" alt="Notion">
+      <div class="project-content">
+        <h3>Notion / Synthèse</h3>
+        <p>Organisation et synthèse des articles intéressants, notes et résumés pour exploiter la veille de manière active.</p>
+      </div>
+    </div>
+  </div>
 </div>
 
 <!-- Contact -->
