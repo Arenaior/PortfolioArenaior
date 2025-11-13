@@ -30,7 +30,7 @@
   }
 
   .header-overlay {
-    background-color: rgba(20, 83, 45, 0.6); /* vert foncé translucide */
+    background-color: rgba(20, 83, 45, 0.6);
     width: 100%;
     height: 100%;
     position: absolute;
@@ -157,7 +157,7 @@
     line-height: 1.4;
   }
 
-  /* ---------------- Animations Projets avec effet Scroll ---------------- */
+  /* ---------------- Animations Projets ---------------- */
   .hidden {
     opacity: 0;
     transform: translateY(50px);
@@ -170,65 +170,69 @@
   }
 
   @keyframes slideFromLeft {
-    0% {
-      opacity: 0;
-      transform: translateX(-80px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateX(0);
-    }
+    0% { opacity: 0; transform: translateX(-80px); }
+    100% { opacity: 1; transform: translateX(0); }
   }
 
   @keyframes slideFromRight {
-    0% {
-      opacity: 0;
-      transform: translateX(80px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateX(0);
-    }
+    0% { opacity: 0; transform: translateX(80px); }
+    100% { opacity: 1; transform: translateX(0); }
   }
 
-  .slide-left.show {
-    animation: slideFromLeft 1s ease forwards;
-  }
+  .slide-left.show { animation: slideFromLeft 1s ease forwards; }
+  .slide-right.show { animation: slideFromRight 1s ease forwards; }
 
-  .slide-right.show {
-    animation: slideFromRight 1s ease forwards;
-  }
-
-  /* ---------------- Compétences et Veille ---------------- */
-  .info-section {
-    max-width: 900px;
-    margin: 60px auto;
-    padding: 50px 30px;
-    background-color: #ffffff;
-    border-radius: 15px;
+  /* ---------------- Compétences ---------------- */
+  .skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+    max-width: 1200px;
+    margin: 30px auto 60px auto;
     text-align: center;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
   }
 
-  .info-section h2 {
-    font-size: 28px;
+  .skill-card {
+    background-color: #e8f0e8;
+    border-radius: 15px;
+    padding: 25px 20px;
+    width: 220px;
+    text-align: center;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+    transition: transform 0.3s, box-shadow 0.3s;
+    border-top: 4px solid #14532d;
+    flex: 1 1 220px;
+    max-width: 220px;
+  }
+
+  .skill-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+  }
+
+  .skill-card h3 {
+    margin-bottom: 12px;
     color: #14532d;
-    margin-bottom: 20px;
+    font-size: 20px;
   }
 
-  .info-section p {
-    font-size: 18px;
-    margin-bottom: 30px;
+  .skill-card p {
+    font-size: 15px;
     line-height: 1.5;
+    color: #1F1F1F;
   }
 
   .btn-next {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 12px 28px;
     background-color: #14532d;
     color: #ffffff;
-    padding: 12px 28px;
-    border-radius: 30px;
     font-weight: bold;
+    border-radius: 30px;
     transition: 0.3s;
+    text-decoration: none;
   }
 
   .btn-next:hover {
@@ -279,43 +283,21 @@
   }
 
   /* ---------------- Responsive ---------------- */
-  @media screen and (max-width: 800px) {
-    .about-section {
-      flex-direction: column;
-      text-align: center;
-    }
-
-    .about-photo img {
-      margin-bottom: 20px;
-    }
-
-    .project-content p {
-      font-size: 14px;
-    }
-
-    .btn-next, .social-links a {
-      padding: 10px 20px;
-      font-size: 14px;
-    }
+  @media screen and (max-width: 900px) {
+    .skills-container { gap: 20px; }
+    .skill-card { width: 45%; max-width: none; }
   }
 
-  @media screen and (max-width: 800px) {
-    .projects-grid {
-      grid-template-columns: 1fr;
-      gap: 20px;
-    }
-
-    .project-card img {
-      height: 140px;
-    }
-
-    .project-content h3 {
-      font-size: 18px;
-    }
-
-    .project-content p {
-      font-size: 14px;
-    }
+  @media screen and (max-width: 600px) {
+    .about-section { flex-direction: column; text-align: center; }
+    .about-photo img { margin-bottom: 20px; }
+    .projects-grid { grid-template-columns: 1fr; gap: 20px; }
+    .project-card img { height: 140px; }
+    .project-content h3 { font-size: 18px; }
+    .project-content p { font-size: 14px; }
+    .skills-container { flex-direction: column; align-items: center; }
+    .skill-card { width: 90%; }
+    .btn-next, .social-links a { padding: 10px 20px; font-size: 14px; }
   }
 </style>
 </head>
@@ -371,32 +353,50 @@
 </div>
 
 <!-- Compétences -->
-<div class="info-section">
-  <h2>🧠 Compétences</h2>
-  <p>Découvrez les langages, outils et frameworks que j’utilise.</p>
+<div class="info-section" style="text-align: center;">
+  <h2>🧠 Mes Compétences</h2>
+  <p>Voici un aperçu des langages, outils et frameworks que j’utilise pour le développement et la création de projets.</p>
+
+  <div class="skills-container">
+    <div class="skill-card">
+      <h3>Développement Web</h3>
+      <p>HTML, CSS, JavaScript, PHP, Bootstrap</p>
+    </div>
+    <div class="skill-card">
+      <h3>Programmation</h3>
+      <p>Python (bases), Java (en apprentissage)</p>
+    </div>
+    <div class="skill-card">
+      <h3>Base de données</h3>
+      <p>MySQL, gestion CRUD, MAMP</p>
+    </div>
+    <div class="skill-card">
+      <h3>Outils</h3>
+      <p>Git, GitHub, Vercel, VS Code</p>
+    </div>
+    <div class="skill-card">
+      <h3>Design</h3>
+      <p>Conception simple JavaFX, Scenebuilder</p>
+    </div>
+  </div>
+
   <a href="pages/competences.html" class="btn-next">Explorer →</a>
 </div>
 
 <!-- Veille Technologique -->
-<!-- Veille Technologique -->
-<!-- Veille Technologique -->
-<div class="info-section">
+<div class="info-section " style="text-align: center;">
   <h2>📰 Veille Technologique - IA Générative</h2>
-  <p>
-    Je me tiens informé des dernières tendances en Intelligence Artificielle générative grâce à plusieurs méthodes de veille.
-  </p>
+  <p>Je me tiens informé des dernières tendances en Intelligence Artificielle générative grâce à plusieurs méthodes de veille.</p>
 
   <div class="projects-grid">
-    <!-- Google Alerts -->
     <div class="project-card slide-left hidden">
       <img src="images/Google Alert.jpg" alt="Google Alerts">
       <div class="project-content">
         <h3>Google Alerts</h3>
-        <p>Les informations sont envoyées directement sur mon compte google en fonction de mon thème choisi.</p>
+        <p>Les informations sont envoyées directement sur mon compte Google en fonction de mon thème choisi.</p>
       </div>
     </div>
 
-    <!-- Flux RSS -->
     <div class="project-card slide-right hidden">
       <img src="images/Flux RSS.jpg" alt="Flux RSS">
       <div class="project-content">
@@ -405,9 +405,8 @@
       </div>
     </div>
 
-    <!-- Feedly -->
     <div class="project-card slide-left hidden">
-      <img src="images/Inoreader.png" alt="Feedly" style="background-color: #f0f0f0; padding: 30px; object-fit: contain;">
+      <img src="images/Inoreader.png" alt="Inoreader" style="background-color: #f0f0f0; padding: 30px; object-fit: contain;">
       <div class="project-content">
         <h3>Inoreader</h3>
         <p>Outil de veille centralisé où je regroupe mes sources RSS et actualités sur l’IA et le développement. Permet un suivi rapide, visuel et organisé des tendances.</p>
@@ -415,7 +414,6 @@
     </div>
   </div>
 </div>
-
 
 <!-- Contact -->
 <div class="contact-section">
@@ -432,7 +430,6 @@
 <!-- Script Scroll Animation -->
 <script>
   const hiddenElements = document.querySelectorAll('.hidden');
-  
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -441,7 +438,6 @@
       }
     });
   }, { threshold: 0.2 });
-
   hiddenElements.forEach(el => observer.observe(el));
 </script>
 
