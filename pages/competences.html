@@ -13,7 +13,6 @@
       --text: #e2e8f0;
       --text-light: #94a3b8;
       --primary: #06ffa5;
-      --primary-dark: #00c785;
       --accent: #00d4ff;
       --gradient: linear-gradient(135deg, #06ffa5, #00d4ff);
     }
@@ -27,11 +26,59 @@
     }
     a { text-decoration: none; color: inherit; }
 
-    /* Hero */
+    /* ===== NAVBAR FIXE ===== */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      padding: 1.5rem 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: all 0.4s ease;
+    }
+    .navbar.scrolled {
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(12px);
+      padding: 1rem 5%;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+    .nav-logo {
+      font-size: 1.6rem;
+      font-weight: 800;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+    }
+    .nav-links a {
+      font-weight: 500;
+      position: relative;
+      transition: color 0.3s;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -6px;
+      left: 0;
+      background: var(--gradient);
+      transition: width 0.4s;
+    }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-links a:hover { color: var(--primary); }
+
+    /* ===== HERO ===== */
     .hero {
       height: 100vh;
       min-height: 650px;
-      background: linear-gradient(rgba(15,23,42,0.85), rgba(15,23,42,0.95)), url("../images/p1.JPEG") center/cover no-repeat;
+      background: linear-gradient(rgba(15,23,42,0.9), rgba(15,23,42,0.95)), url("../images/p1.JPEG") center/cover no-repeat;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -51,36 +98,21 @@
       max-width: 900px;
       padding: 2rem;
     }
-    .hero h1 {
-      font-size: 4.5rem;
-      font-weight: 800;
-      background: var(--gradient);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      margin-bottom: 1rem;
-    }
-    .hero p {
-      font-size: 1.5rem;
-      margin-bottom: 2rem;
-      color: var(--text-light);
-    }
+    .hero h1 { font-size: 4.8rem; font-weight: 800; background: var(--gradient); -webkit-background-clip: text; color: transparent; }
+    .hero p { font-size: 1.6rem; margin: 1.5rem 0 2.5rem; color: var(--text-light); }
     .btn {
-      display: inline-block;
-      padding: 14px 36px;
+      padding: 14px 40px;
       background: var(--gradient);
       color: white;
       border-radius: 50px;
       font-weight: 600;
-      transition: all 0.4s ease;
       box-shadow: 0 10px 30px rgba(6,255,165,0.3);
+      transition: all 0.4s;
     }
-    .btn:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 20px 40px rgba(6,255,165,0.4);
-    }
+    .btn:hover { transform: translateY(-6px); box-shadow: 0 20px 40px rgba(6,255,165,0.4); }
 
-    section { padding: 100px 20px; }
+    /* ===== SECTIONS ===== */
+    section { padding: 120px 20px; }
     .container { max-width: 1200px; margin: 0 auto; }
     h2.section-title {
       font-size: 3rem;
@@ -88,33 +120,32 @@
       margin-bottom: 4rem;
       background: var(--gradient);
       -webkit-background-clip: text;
-      background-clip: text;
       color: transparent;
       font-weight: 800;
     }
 
-    /* About */
-    .about {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 5rem;
-      align-items: center;
-    }
-    .about-img img {
-      width: 300px;
-      height: 300px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 6px solid transparent;
-      background: var(--gradient) padding-box, var(--gradient) border-box;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    /* Animations gauche / droite */
+    .slide-left { opacity: 0; transform: translateX(-100px); transition: all 1s ease-out; }
+    .slide-right { opacity: 0; transform: translateX(80px); transition: all 1s ease-out; }
+    .slide-left.active, .slide-right.active {
+      opacity: 1;
+      transform: translateX(0);
     }
 
-    /* Grids */
+    /* About */
+    .about { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+    .about-img img {
+      width: 320px; height: 320px; border-radius: 50%; object-fit: cover;
+      border: 6px solid transparent;
+      background: var(--gradient) padding-box, var(--gradient) border-box;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    }
+
+    /* Cards communes */
     .projects-grid, .veille-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-      gap: 2rem;
+      gap: 2.5rem;
     }
     .card {
       background: var(--card);
@@ -122,205 +153,194 @@
       border-radius: 20px;
       overflow: hidden;
       border: 1px solid rgba(255,255,255,0.1);
-      transition: all 0.4s ease;
+      transition: all 0.4s;
     }
     .card:hover {
       transform: translateY(-15px);
-      box-shadow: 0 25px 50px rgba(6,255,165,0.25);
       border-color: var(--primary);
+      box-shadow: 0 25px 50px rgba(6,255,165,0.25);
     }
-    .card img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-    }
-    .card-content {
-      padding: 1.8rem;
-    }
-    .card-content h3 {
-      font-size: 1.5rem;
-      margin-bottom: 0.8rem;
-      color: var(--primary);
-    }
+    .card img { width: 100%; height: 200px; object-fit: cover; }
+    .card-content { padding: 2rem; }
+    .card-content h3 { color: var(--primary); margin-bottom: 0.8rem; }
 
     /* Skills */
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 2rem;
-    }
+    .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 2rem; }
     .skill-card {
       background: var(--card);
       backdrop-filter: blur(12px);
       border: 1px solid rgba(255,255,255,0.1);
       border-radius: 18px;
-      padding: 2rem;
+      padding: 2.5rem 2rem;
       text-align: center;
       transition: 0.4s;
     }
-    .skill-card:hover {
-      border-color: var(--primary);
-      transform: translateY(-10px);
-    }
-    .skill-card i {
-      font-size: 3rem;
-      background: var(--gradient);
-      -webkit-background-clip: text;
-      color: transparent;
-      margin-bottom: 1rem;
-    }
+    .skill-card:hover { border-color: var(--primary); transform: translateY(-10px); }
+    .skill-card i { font-size: 3.5rem; background: var(--gradient); -webkit-background-clip: text; color: transparent; margin-bottom: 1rem; }
 
     /* Contact */
     .social-links {
       display: flex;
       justify-content: center;
-      gap: 1.5rem;
+      gap: 2rem;
       flex-wrap: wrap;
       margin-top: 3rem;
     }
     .social-links a {
-      padding: 14px 34px;
+      padding: 16px 36px;
       background: var(--card);
       border: 1px solid rgba(255,255,255,0.1);
       border-radius: 50px;
       transition: all 0.4s;
-      min-width: 180px;
     }
     .social-links a:hover {
       background: var(--primary);
-      color: black;
-      transform: translateY(-5px);
-      border-color: var(--primary);
+      color: #000;
+      transform: translateY(-6px);
     }
 
     /* Responsive */
     @media (max-width: 900px) {
-      .hero h1 { font-size: 3.5rem; }
+      .navbar { padding: 1rem 5%; }
+      .nav-links { gap: 1.5rem; font-size: 0.95rem; }
       .about { grid-template-columns: 1fr; text-align: center; }
+      .hero h1 { font-size: 3.8rem; }
     }
     @media (max-width: 600px) {
       .hero h1 { font-size: 2.8rem; }
-      h2.section-title { font-size: 2.4rem; }
+      .hero p { font-size: 1.3rem; }
+      .nav-links { gap: 1rem; }
+      h2.section-title { font-size: 2.5rem; }
     }
-
-    .reveal { opacity: 0; transform: translateY(60px); transition: all 1s ease; }
-    .reveal.active { opacity: 1; transform: translateY(0); }
   </style>
 </head>
 <body>
 
-  <!-- Hero -->
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-logo">Arena</div>
+    <div class="nav-links">
+      <a href="#about">À propos</a>
+      <a href="#projects">Projets</a>
+      <a href="#veille">Veille IA</a>
+      <a href="#skills">Compétences</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
   <header class="hero">
     <div class="hero-content">
       <h1>Arena Randrianaina</h1>
-      <p>Développeur Web Full Stack & Passionné d'IA</p>
-      <a href="CV-Arena.pdf" class="btn">Télécharger mon CV</a>
+      <p>Développeur Web • Passionné d’IA & Innovation</p>
+      <a href="CV-Arena.pdf" class="btn">Télécharger CV</a>
     </div>
   </header>
 
-  <!-- À propos -->
-  <section class="about container">
-    <div class="about-img reveal">
-      <img src="../images/Arena6.jpeg" alt="Arena Randrianaina">
-    </div>
-    <div class="about-text reveal">
-      <h3>À propos de moi</h3>
-      <p>Étudiant malgache en développement web à la MCCI Business School (Maurice). Je code depuis 2024 avec HTML, CSS, JavaScript, PHP, Bootstrap, MySQL, Java, et je suis particulièrement curieux des nouvelles technologies, notamment l’intelligence artificielle générative.</p>
+  <!-- À PROPOS -->
+  <section id="about" class="container">
+    <div class="about">
+      <div class="about-img slide-left">
+        <img src="../images/Arena5.png" alt="Arena">
+      </div>
+      <div class="about-text slide-right">
+        <h3>À propos de moi</h3>
+        <p>Étudiant malgache en développement web à la MCCI Business School (Maurice). Je code depuis 2024 avec HTML, CSS, JavaScript, PHP, MySQL, Java… et je suis fasciné par l’intelligence artificielle générative.</p>
+        <p>Curieux, rigoureux et toujours à l’affût des dernières tendances tech.</p>
+      </div>
     </div>
   </section>
 
-  <!-- Projets -->
-  <section id="projects">
-    <div class="container">
-      <h2 class="section-title">Mes Projets</h2>
-      <div class="projects-grid">
-        <a href="pages/Supercar.html" class="card reveal">
-          <img src="../images/voitures.jpg" alt="Supercar">
-          <div class="card-content">
-            <h3>Supercar Concession</h3>
-            <p>Site complet avec réservation d’essai, espace admin sécurisé et design responsive Bootstrap.</p>
-          </div>
-        </a>
-        <a href="pages/Gasik'art.html" class="card reveal">
-          <img src="../images/stage1.jpg" alt="Gasik'art">
-          <div class="card-content">
-            <h3>Gasik'art – Gestion de stock & caisse</h3>
-            <p>Application full PHP/MySQL pour entreprise artisanale avec authentification.</p>
-          </div>
-        </a>
-        <div class="card reveal">
-          <img src="../images/voucher.jpg" alt="VMS">
-          <div class="card-content">
-            <h3>VMS – Voucher Management System</h3>
-            <p>Application Java desktop pour gérer les commandes de bons d’achat.</p>
-          </div>
+  <!-- PROJETS -->
+  <section id="projects" class="container">
+    <h2 class="section-title slide-left">Mes Projets</h2>
+    <div class="projects-grid">
+      <a href="pages/Supercar.html" class="card slide-left">
+        <img src="../images/voitures.jpg" alt="Supercar">
+        <div class="card-content">
+          <h3>Supercar Concession</h3>
+          <p>Site complet + réservation d’essai + admin sécurisé</p>
+        </div>
+      </a>
+      <a href="pages/Gasik'art.html" class="card slide-right">
+        <img src="../images/stage1.jpg" alt="Gasik'art">
+        <div class="card-content">
+          <h3>Gasik'art – Stock & Caisse</h3>
+          <p>Gestion complète pour entreprise artisanale</p>
+        </div>
+      </a>
+      <div class="card slide-left">
+        <img src="../images/voucher.jpg" alt="VMS">
+        <div class="card-content">
+          <h3>VMS – Voucher System</h3>
+          <p>Application Java desktop fluide</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Veille Technologique -->
-  <section id="veille">
-    <div class="container">
-      <h2 class="section-title">Veille Technologique – IA Générative</h2>
-      <p class="text-center mb-5" style="max-width: 800px; margin: 0 auto; color: var(--text-light);">
-        Je reste constamment à jour sur les dernières avancées en intelligence artificielle générative grâce à des outils automatisés et organisés.
-      </p>
-      <div class="veille-grid">
-        <a href="https://mail.google.com/mail/u/1/#search/alert" target="_blank" class="card reveal">
-          <img src="images/Google Alert.jpg" alt="Google Alerts">
-          <div class="card-content">
-            <h3>Google Alerts</h3>
-            <p>Reçoit automatiquement les nouvelles publications sur mes mots-clés (ex : "IA générative", "LLM", "ChatGPT", "Stable Diffusion").</p>
-          </div>
-        </a>
-        <a href="https://www.inoreader.com" target="_blank" class="card reveal">
-          <img src="images/Flux RSS.jpg" alt="Flux RSS">
-          <div class="card-content">
-            <h3>Flux RSS + Inoreader</h3>
-            <p>Centralisation de dizaines de blogs et médias tech (ArXiv, HuggingFace, Towards Data Science, etc.).</p>
-          </div>
-        </a>
-        <a href="https://www.inoreader.com" target="_blank" class="card reveal">
-          <img src="images/Inoreader.png" alt="Inoreader dashboard" style="background:#fff; object-fit: contain;">
-          <div class="card-content">
-            <h3>Inoreader Pro</h3>
-            <p>Mon tableau de bord principal : filtres, tags, dossiers thématiques et lecture hors-ligne pour une veille ultra-efficace.</p>
-          </div>
-        </a>
-      </div>
+  <!-- VEILLE TECHNOLOGIQUE -->
+  <section id="veille" class="container">
+    <h2 class="section-title slide-right">Veille Technologique – IA Générative</h2>
+    <p style="text-align:center; max-width:800px; margin:0 auto 4rem; color:var(--text-light);">
+      Je reste à jour quotidiennement grâce à des outils automatisés.
+    </p>
+    <div class="veille-grid">
+      <a href="https://mail.google.com/mail/u/1/#search/alert" target="_blank" class="card slide-left">
+        <img src="images/Google Alert.jpg" alt="Google Alerts">
+        <div class="card-content"><h3>Google Alerts</h3><p>Alertes email sur IA générative, LLM, diffusion models…</p></div>
+      </a>
+      <a href="https://www.inoreader.com" target="_blank" class="card slide-right">
+        <img src="images/Flux RSS.jpg" alt="RSS">
+        <div class="card-content"><h3>Flux RSS</h3><p>Centralisation de 50+ sources tech</p></div>
+      </a>
+      <a href="https://www.inoreader.com" target="_blank" class="card slide-left">
+        <img src="images/Inoreader.png" alt="Inoreader" style="background:#fff;padding:20px;">
+        <div class="card-content"><h3>Inoreader Pro</h3><p>Mon dashboard de veille organisé par thèmes</p></div>
+      </a>
     </div>
   </section>
 
-  <!-- Compétences -->
-  <section id="skills">
-    <div class="container">
-      <h2 class="section-title">Compétences</h2>
-      <div class="skills-grid">
-        <div class="skill-card reveal"><i class="fa-solid fa-code"></i><h3>Web</h3><p>HTML • CSS • JS • PHP • Bootstrap</p></div>
-        <div class="skill-card reveal"><i class="fa-solid fa-laptop-code"></i><h3>Programmation</h3><p>Python • Java • JavaFX</p></div>
-        <div class="skill-card reveal"><i class="fa-solid fa-database"></i><h3>DB</h3><p>MySQL • CRUD • MAMP</p></div>
-        <div class="skill-card reveal"><i class="fa-brands fa-git-alt"></i><h3>Outils</h3><p>Git • GitHub • Vercel • VS Code</p></div>
-      </div>
+  <!-- COMPÉTENCES -->
+  <section id="skills" class="container">
+    <h2 class="section-title slide-left">Compétences</h2>
+    <div class="skills-grid">
+      <div class="skill-card slide-left"><i class="fa-solid fa-code"></i><h3>Web</h3><p>HTML • CSS • JS • PHP • Bootstrap</p></div>
+      <div class="skill-card slide-right"><i class="fa-solid fa-laptop-code"></i><h3>Programmation</h3><p>Python • Java • JavaFX</p></div>
+      <div class="skill-card slide-left"><i class="fa-solid fa-database"></i><h3>DB</h3><p>MySQL • CRUD • MAMP</p></div>
+      <div class="skill-card slide-right"><i class="fa-brands fa-git-alt"></i><h3>Outils</h3><p>Git • GitHub • Vercel • VS Code</p></div>
     </div>
   </section>
 
-  <!-- Contact -->
-  <section class="contact" id="contact">
-    <div class="container">
-      <h2 class="section-title">Me contacter</h2>
-      <center><p>Une idée ? Un projet ? Un café virtuel ?</p></center>
-      <div class="social-links">
-        <a href="https://www.facebook.com/arena.randrianaina" target="_blank"><i class="fab fa-facebook-f"></i> Facebook</a>
-        <a href="https://www.instagram.com/arenaior/" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
-        <a href="https://www.linkedin.com/in/arena-randrianaina" target="_blank"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
-        <a href="mailto:arenarandrianaina1@gmail.com"><i class="fas fa-envelope"></i> Email</a>
-      </div>
+  <!-- CONTACT -->
+  <section id="contact" class="container">
+    <h2 class="section-title slide-right">Me contacter</h2>
+    <p style="text-align:center; margin-bottom:3rem;">Un projet ? Une question ? Écrivons l’avenir ensemble !</p>
+    <div class="social-links">
+      <a href="https://www.facebook.com/arena.randrianaina" target="_blank"><i class="fab fa-facebook-f"></i> Facebook</a>
+      <a href="https://www.instagram.com/arenaior/" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+      <a href="https://www.linkedin.com/in/arena-randrianaina" target="_blank"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
+      <a href="mailto:arenarandrianaina1@gmail.com"><i class="fas fa-envelope"></i> Email</a>
     </div>
   </section>
 
   <script>
-    const reveals = document.querySelectorAll('.reveal');
+    // Navbar effet au scroll
+    window.addEventListener('scroll', () => {
+      document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+
+    // Animation gauche / droite au scroll
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -328,7 +348,10 @@
         }
       });
     }, { threshold: 0.15 });
-    reveals.forEach(el => observer.observe(el));
+
+    document.querySelectorAll('.slide-left, .slide-right').forEach(el => {
+      observer.observe(el);
+    });
   </script>
 </body>
 </html>
