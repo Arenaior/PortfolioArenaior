@@ -1,119 +1,334 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Compétences - Portfolio Arena</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Arena Randrianaina | Développeur Web</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
   <style>
+    :root {
+      --bg: #0f172a;
+      --card: rgba(255, 255, 255, 0.08);
+      --text: #e2e8f0;
+      --text-light: #94a3b8;
+      --primary: #06ffa5;
+      --primary-dark: #00c785;
+      --accent: #00d4ff;
+      --gradient: linear-gradient(135deg, #06ffa5, #00d4ff);
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      background-color: #f9f9f9; /* Fond clair */
-      font-family: Arial, sans-serif;
-      color: #1F1F1F; /* Texte principal foncé */
-      margin: 0;
-      padding: 20px;
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
     }
+    a { text-decoration: none; color: inherit; }
 
-    h1 {
-      text-align: center;
-      margin-bottom: 40px;
-      font-size: 36px;
-      color: #064635; /* Vert foncé pour accent */
-    }
-
-    .skills-container {
+    /* Hero */
+    .hero {
+      height: 100vh;
+      min-height: 650px;
+      background: linear-gradient(rgba(15,23,42,0.85), rgba(15,23,42,0.95)), url("../images/p1.JPEG") center/cover no-repeat;
       display: flex;
-      flex-wrap: wrap;
+      align-items: center;
       justify-content: center;
-      gap: 25px;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .skill-card {
-      background-color: #e8f0e8; /* Vert très clair */
-      border-radius: 15px;
-      padding: 25px 20px;
-      width: 220px;
       text-align: center;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.15);
-      transition: transform 0.3s, box-shadow 0.3s;
-      border-top: 4px solid #064635; /* Accent vert foncé */
+      position: relative;
     }
-
-    .skill-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--gradient);
+      opacity: 0.15;
     }
-
-    .skill-card h3 {
-      margin-bottom: 12px;
-      color: #064635; /* Vert foncé */
-      font-size: 20px;
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
+      padding: 2rem;
     }
-
-    .skill-card p {
-      font-size: 15px;
-      line-height: 1.5;
-      color: #1F1F1F; /* Texte noir foncé */
+    .hero h1 {
+      font-size: 4.5rem;
+      font-weight: 800;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin-bottom: 1rem;
     }
-
-    .btn-home {
+    .hero p {
+      font-size: 1.5rem;
+      margin-bottom: 2rem;
+      color: var(--text-light);
+    }
+    .btn {
       display: inline-block;
-      margin-top: 40px;
-      padding: 12px 30px;
-      background-color: #064635; /* Vert foncé */
-      color: #fff;
-      font-weight: bold;
-      text-decoration: none;
-      border-radius: 30px;
-      transition: 0.3s;
+      padding: 14px 36px;
+      background: var(--gradient);
+      color: white;
+      border-radius: 50px;
+      font-weight: 600;
+      transition: all 0.4s ease;
+      box-shadow: 0 10px 30px rgba(6,255,165,0.3);
+    }
+    .btn:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(6,255,165,0.4);
     }
 
-    .btn-home:hover {
-      background-color: #04603d;
-      box-shadow: 0 6px 20px rgba(0,100,60,0.4);
-      transform: translateY(-3px);
+    section { padding: 100px 20px; }
+    .container { max-width: 1200px; margin: 0 auto; }
+    h2.section-title {
+      font-size: 3rem;
+      text-align: center;
+      margin-bottom: 4rem;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      font-weight: 800;
     }
 
-    @media screen and (max-width: 600px) {
-      .skills-container {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .skill-card {
-        width: 90%;
-      }
+    /* About */
+    .about {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
     }
+    .about-img img {
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 6px solid transparent;
+      background: var(--gradient) padding-box, var(--gradient) border-box;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    }
+
+    /* Grids */
+    .projects-grid, .veille-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 2rem;
+    }
+    .card {
+      background: var(--card);
+      backdrop-filter: blur(12px);
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.1);
+      transition: all 0.4s ease;
+    }
+    .card:hover {
+      transform: translateY(-15px);
+      box-shadow: 0 25px 50px rgba(6,255,165,0.25);
+      border-color: var(--primary);
+    }
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+    .card-content {
+      padding: 1.8rem;
+    }
+    .card-content h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.8rem;
+      color: var(--primary);
+    }
+
+    /* Skills */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
+    }
+    .skill-card {
+      background: var(--card);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 18px;
+      padding: 2rem;
+      text-align: center;
+      transition: 0.4s;
+    }
+    .skill-card:hover {
+      border-color: var(--primary);
+      transform: translateY(-10px);
+    }
+    .skill-card i {
+      font-size: 3rem;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      color: transparent;
+      margin-bottom: 1rem;
+    }
+
+    /* Contact */
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      margin-top: 3rem;
+    }
+    .social-links a {
+      padding: 14px 34px;
+      background: var(--card);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 50px;
+      transition: all 0.4s;
+      min-width: 180px;
+    }
+    .social-links a:hover {
+      background: var(--primary);
+      color: black;
+      transform: translateY(-5px);
+      border-color: var(--primary);
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .hero h1 { font-size: 3.5rem; }
+      .about { grid-template-columns: 1fr; text-align: center; }
+    }
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 2.8rem; }
+      h2.section-title { font-size: 2.4rem; }
+    }
+
+    .reveal { opacity: 0; transform: translateY(60px); transition: all 1s ease; }
+    .reveal.active { opacity: 1; transform: translateY(0); }
   </style>
 </head>
 <body>
-  <h1>Mes Compétences</h1>
-  <div class="skills-container">
-    <div class="skill-card">
-      <h3>Développement Web</h3>
-      <p>HTML, CSS, JavaScript, PHP, Bootstrap</p>
-    </div>
-    <div class="skill-card">
-      <h3>Programmation</h3>
-      <p>Python (bases), Java (en apprentissage)</p>
-    </div>
-    <div class="skill-card">
-      <h3>Base de données</h3>
-      <p>MySQL, gestion CRUD, MAMP</p>
-    </div>
-    <div class="skill-card">
-      <h3>Outils</h3>
-      <p>Git, GitHub, Vercel, VS Code</p>
-    </div>
-    <div class="skill-card">
-      <h3>Design</h3>
-      <p>Conception simple JavaFx, Scenebuilder</p>
-    </div>
-  </div>
 
-  <center>
-    <a href="../index.html" class="btn-home">Retour à l'accueil</a>
-  </center>
+  <!-- Hero -->
+  <header class="hero">
+    <div class="hero-content">
+      <h1>Arena Randrianaina</h1>
+      <p>Développeur Web Full Stack & Passionné d'IA</p>
+      <a href="CV-Arena.pdf" class="btn">Télécharger mon CV</a>
+    </div>
+  </header>
+
+  <!-- À propos -->
+  <section class="about container">
+    <div class="about-img reveal">
+      <img src="../images/Arena6.jpeg" alt="Arena Randrianaina">
+    </div>
+    <div class="about-text reveal">
+      <h3>À propos de moi</h3>
+      <p>Étudiant malgache en développement web à la MCCI Business School (Maurice). Je code depuis 2024 avec HTML, CSS, JavaScript, PHP, Bootstrap, MySQL, Java, et je suis particulièrement curieux des nouvelles technologies, notamment l’intelligence artificielle générative.</p>
+    </div>
+  </section>
+
+  <!-- Projets -->
+  <section id="projects">
+    <div class="container">
+      <h2 class="section-title">Mes Projets</h2>
+      <div class="projects-grid">
+        <a href="pages/Supercar.html" class="card reveal">
+          <img src="../images/voitures.jpg" alt="Supercar">
+          <div class="card-content">
+            <h3>Supercar Concession</h3>
+            <p>Site complet avec réservation d’essai, espace admin sécurisé et design responsive Bootstrap.</p>
+          </div>
+        </a>
+        <a href="pages/Gasik'art.html" class="card reveal">
+          <img src="../images/stage1.jpg" alt="Gasik'art">
+          <div class="card-content">
+            <h3>Gasik'art – Gestion de stock & caisse</h3>
+            <p>Application full PHP/MySQL pour entreprise artisanale avec authentification.</p>
+          </div>
+        </a>
+        <div class="card reveal">
+          <img src="../images/voucher.jpg" alt="VMS">
+          <div class="card-content">
+            <h3>VMS – Voucher Management System</h3>
+            <p>Application Java desktop pour gérer les commandes de bons d’achat.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Veille Technologique -->
+  <section id="veille">
+    <div class="container">
+      <h2 class="section-title">Veille Technologique – IA Générative</h2>
+      <p class="text-center mb-5" style="max-width: 800px; margin: 0 auto; color: var(--text-light);">
+        Je reste constamment à jour sur les dernières avancées en intelligence artificielle générative grâce à des outils automatisés et organisés.
+      </p>
+      <div class="veille-grid">
+        <a href="https://mail.google.com/mail/u/1/#search/alert" target="_blank" class="card reveal">
+          <img src="images/Google Alert.jpg" alt="Google Alerts">
+          <div class="card-content">
+            <h3>Google Alerts</h3>
+            <p>Reçoit automatiquement les nouvelles publications sur mes mots-clés (ex : "IA générative", "LLM", "ChatGPT", "Stable Diffusion").</p>
+          </div>
+        </a>
+        <a href="https://www.inoreader.com" target="_blank" class="card reveal">
+          <img src="images/Flux RSS.jpg" alt="Flux RSS">
+          <div class="card-content">
+            <h3>Flux RSS + Inoreader</h3>
+            <p>Centralisation de dizaines de blogs et médias tech (ArXiv, HuggingFace, Towards Data Science, etc.).</p>
+          </div>
+        </a>
+        <a href="https://www.inoreader.com" target="_blank" class="card reveal">
+          <img src="images/Inoreader.png" alt="Inoreader dashboard" style="background:#fff; object-fit: contain;">
+          <div class="card-content">
+            <h3>Inoreader Pro</h3>
+            <p>Mon tableau de bord principal : filtres, tags, dossiers thématiques et lecture hors-ligne pour une veille ultra-efficace.</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Compétences -->
+  <section id="skills">
+    <div class="container">
+      <h2 class="section-title">Compétences</h2>
+      <div class="skills-grid">
+        <div class="skill-card reveal"><i class="fa-solid fa-code"></i><h3>Web</h3><p>HTML • CSS • JS • PHP • Bootstrap</p></div>
+        <div class="skill-card reveal"><i class="fa-solid fa-laptop-code"></i><h3>Programmation</h3><p>Python • Java • JavaFX</p></div>
+        <div class="skill-card reveal"><i class="fa-solid fa-database"></i><h3>DB</h3><p>MySQL • CRUD • MAMP</p></div>
+        <div class="skill-card reveal"><i class="fa-brands fa-git-alt"></i><h3>Outils</h3><p>Git • GitHub • Vercel • VS Code</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <h2 class="section-title">Me contacter</h2>
+      <center><p>Une idée ? Un projet ? Un café virtuel ?</p></center>
+      <div class="social-links">
+        <a href="https://www.facebook.com/arena.randrianaina" target="_blank"><i class="fab fa-facebook-f"></i> Facebook</a>
+        <a href="https://www.instagram.com/arenaior/" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+        <a href="https://www.linkedin.com/in/arena-randrianaina" target="_blank"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
+        <a href="mailto:arenarandrianaina1@gmail.com"><i class="fas fa-envelope"></i> Email</a>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        }
+      });
+    }, { threshold: 0.15 });
+    reveals.forEach(el => observer.observe(el));
+  </script>
 </body>
 </html>
