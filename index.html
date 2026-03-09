@@ -28,7 +28,7 @@
     }
     a { text-decoration: none; color: inherit; }
 
-    /* ===== NAVBAR (Ton style original) ===== */
+    /* ===== NAVBAR ===== */
     .navbar {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -52,34 +52,115 @@
       -webkit-background-clip: text;
       color: transparent;
     }
-    .nav-links { display: flex; gap: 2.5rem; }
-    .nav-links a { font-weight: 500; position: relative; }
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+    }
+    .nav-links a {
+      font-weight: 500;
+      position: relative;
+    }
     .nav-links a::after {
       content: ''; position: absolute; bottom: -6px; left: 0; width: 0; height: 2px;
       background: var(--gradient); transition: width 0.4s;
     }
     .nav-links a:hover::after { width: 100%; }
+    .nav-links a:hover { color: var(--primary); }
 
     /* ===== HERO ===== */
     .hero {
       height: 100vh;
       min-height: 650px;
       background: linear-gradient(rgba(15,23,42,0.9), rgba(15,23,42,0.95)), url("../images/p1.JPEG") center/cover no-repeat;
-      display: flex; align-items: center; justify-content: center; text-align: center; position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
     }
-    .hero h1 { font-size: 4.8rem; font-weight: 800; background: var(--gradient); -webkit-background-clip: text; color: transparent; }
-    .btn { padding: 14px 40px; background: var(--gradient); color: white; border-radius: 50px; font-weight: 600; transition: all 0.4s; display: inline-block; margin-top: 20px; }
+    .hero::before {
+      content: ''; position: absolute; inset: 0;
+      background: var(--gradient); opacity: 0.15;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
+      padding: 2rem;
+    }
+    .hero h1 {
+      font-size: 4.8rem;
+      font-weight: 800;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+    .hero p {
+      font-size: 1.6rem;
+      margin: 1.5rem 0 2.5rem;
+      color: var(--text-light);
+    }
+    .btn {
+      padding: 14px 40px;
+      background: var(--gradient);
+      color: white;
+      border-radius: 50px;
+      font-weight: 600;
+      box-shadow: 0 10px 30px rgba(6,255,165,0.3);
+      transition: all 0.4s;
+    }
+    .btn:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 40px rgba(6,255,165,0.4);
+    }
 
-    /* ===== SECTION PROJETS (Config CARROUSEL) ===== */
+    /* ===== SECTIONS GÉNÉRALES ===== */
     section { padding: 120px 20px; }
     .container { max-width: 1200px; margin: 0 auto; }
-    h2.section-title { font-size: 3rem; text-align: center; margin-bottom: 4rem; background: var(--gradient); -webkit-background-clip: text; color: transparent; font-weight: 800; }
+    h2.section-title {
+      font-size: 3rem;
+      text-align: center;
+      margin-bottom: 4rem;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      color: transparent;
+      font-weight: 800;
+    }
 
+    /* Animations gauche/droite */
+    .slide-left, .slide-right {
+      opacity: 0;
+      transform: translateX(-80px);
+      transition: all 1s ease-out;
+    }
+    .slide-right { transform: translateX(80px); }
+    .slide-left.active, .slide-right.active {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    /* About */
+    .about {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+    .about-img img {
+      width: 320px; height: 320px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 6px solid transparent;
+      background: var(--gradient) padding-box, var(--gradient) border-box;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    }
+
+    /* ===== NOUVEAU SYSTÈME CARROUSEL PROJETS ===== */
     .carousel-container {
       position: relative;
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 20px;
     }
 
     .projects-track-outer {
@@ -94,10 +175,9 @@
       transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
     }
 
-    /* TAILLE DES CARTES ORIGINALE */
     .card {
-      min-width: 340px; /* Taille exacte de ton code de base */
-      flex: 1 0 340px;
+      min-width: 340px; /* Ta taille originale */
+      flex: 0 0 340px;
       background: var(--card);
       backdrop-filter: blur(12px);
       border-radius: 20px;
@@ -116,26 +196,154 @@
     .card-content { padding: 2rem; }
     .card-content h3 { color: var(--primary); margin-bottom: 0.8rem; }
 
-    /* BOUTONS NAVIGATION */
+    /* Boutons de Navigation */
     .nav-btn {
       background: var(--card);
       border: 1px solid var(--primary);
       color: var(--primary);
-      width: 50px; height: 50px;
+      width: 50px;
+      height: 50px;
       border-radius: 50%;
       cursor: pointer;
       z-index: 10;
-      display: flex; justify-content: center; align-items: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       transition: all 0.3s;
     }
-    .nav-btn:hover { background: var(--primary); color: #000; box-shadow: 0 0 15px var(--primary); }
+    .nav-btn:hover {
+      background: var(--primary);
+      color: #000;
+      box-shadow: 0 0 15px var(--primary);
+    }
 
     .no-transition { transition: none !important; }
 
-    /* Responsive rapide */
-    @media (max-width: 768px) {
-      .card { min-width: 280px; flex-basis: 280px; }
-      .hero h1 { font-size: 3rem; }
+    /* Veille & Compétences */
+    .veille-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 2.5rem;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
+    }
+    .skill-card {
+      background: var(--card);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 18px;
+      padding: 2.5rem 2rem;
+      text-align: center;
+      transition: 0.4s;
+    }
+    .skill-card:hover {
+      border-color: var(--primary);
+      transform: translateY(-10px);
+    }
+    .skill-card i {
+      font-size: 3.5rem;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      color: transparent;
+      margin-bottom: 1rem;
+    }
+
+    /* ===== FORMULAIRE CONTACT ===== */
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 1rem 1.5rem;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 16px;
+      color: white;
+      font-size: 1rem;
+      backdrop-filter: blur(10px);
+      transition: all 0.3s;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 20px rgba(6,255,165,0.3);
+    }
+    ::placeholder { color: #94a3b8; }
+
+    .btn-submit {
+      align-self: center;
+      padding: 16px 50px;
+      background: var(--gradient);
+      color: white;
+      border: none;
+      border-radius: 50px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.4s;
+      box-shadow: 0 10px 30px rgba(6,255,165,0.3);
+      margin-top: 1rem;
+    }
+    .btn-submit:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(6,255,165,0.4);
+    }
+
+    #success-message {
+      display: none;
+      text-align: center;
+      margin-top: 2rem;
+      padding: 1.5rem;
+      background: rgba(6,255,165,0.15);
+      border-radius: 16px;
+      border: 1px solid var(--primary);
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    /* Réseaux sociaux */
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin-top: 5rem;
+    }
+    .social-links a {
+      padding: 16px 36px;
+      background: var(--card);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 50px;
+      transition: all 0.4s;
+    }
+    .social-links a:hover {
+      background: var(--primary);
+      color: #000;
+      transform: translateY(-6px);
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .about { grid-template-columns: 1fr; text-align: center; }
+      .hero h1 { font-size: 3.8rem; }
+      .nav-links { gap: 1.5rem; font-size: 0.95rem; }
+      .card { min-width: 300px; flex-basis: 300px; }
+    }
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 2.8rem; }
+      .hero p { font-size: 1.3rem; }
+      h2.section-title { font-size: 2.5rem; }
+      .card { min-width: 100%; flex-basis: 100%; }
     }
   </style>
 </head>
@@ -146,6 +354,8 @@
     <div class="nav-links">
       <a href="#about">À propos</a>
       <a href="#projects">Projets</a>
+      <a href="#veille">Veille IA</a>
+      <a href="#skills">Compétences</a>
       <a href="#contact">Contact</a>
     </div>
   </nav>
@@ -154,26 +364,39 @@
     <div class="hero-content">
       <h1>Arena Randrianaina</h1>
       <p>Développeur Web • Passionné d’IA & Innovation</p>
-      <a href="#" class="btn">Télécharger CV</a>
+      <a href="CV Arenaior.pdf" class="btn">Télécharger CV</a>
     </div>
   </header>
 
+  <section id="about" class="container">
+    <div class="about">
+      <div class="about-img slide-left">
+        <img src="../images/Arena6.PNG" alt="Arena Randrianaina">
+      </div>
+      <div class="about-text slide-right">
+        <h3>À propos de moi</h3>
+        <p>Étudiant malgache en développement web à la MCCI Business School (Maurice). Je code depuis 2024 avec HTML, CSS, JavaScript, PHP, MySQL, Java… et je suis fasciné par l’intelligence artificielle générative.</p>
+        <p>Curieux, rigoureux et toujours à l’affût des dernières tendances tech.</p>
+      </div>
+    </div>
+  </section>
+
   <section id="projects" class="container">
-    <h2 class="section-title">Mes Projets</h2>
+    <h2 class="section-title slide-left">Mes Projets</h2>
     
     <div class="carousel-container">
       <button class="nav-btn" id="prevBtn"><i class="fas fa-chevron-left"></i></button>
       
       <div class="projects-track-outer">
         <div class="projects-grid" id="projectTrack">
-          <a href="#" class="card">
+          <a href="pages/Supercar.html" class="card">
             <img src="../images/voitures.jpg" alt="Supercar">
             <div class="card-content">
               <h3>Supercar Concession</h3>
               <p>Site complet + réservation d’essai + admin sécurisé</p>
             </div>
           </a>
-          <a href="#" class="card">
+          <a href="pages/Gasik'art.html" class="card">
             <img src="../images/stage1.jpg" alt="Gasik'art">
             <div class="card-content">
               <h3>Gasik'art – Stock & Caisse</h3>
@@ -188,10 +411,10 @@
             </div>
           </div>
           <div class="card">
-            <img src="../images/p1.JPEG" alt="Nouveau">
+            <img src="../images/p1.JPEG" alt="Nouveau Projet">
             <div class="card-content">
-              <h3>IA Chatbot</h3>
-              <p>Interface intelligente avec API générative</p>
+              <h3>IA & Innovation</h3>
+              <p>Solutions intelligentes et agents conversationnels</p>
             </div>
           </div>
         </div>
@@ -201,20 +424,111 @@
     </div>
   </section>
 
+  <section id="veille" class="container">
+    <h2 class="section-title slide-right">Veille Technologique – IA et le développement technologique</h2>
+    <p style="text-align:center; max-width:800px; margin:0 auto 4rem; color:var(--text-light);">
+      Je reste à jour quotidiennement grâce à des outils automatisés.
+      J'utilise différents canaux pour suivre les dernières avancées en IA et le développement technologique, grâce à ces outils:    </p>
+    <div class="veille-grid">
+      <a href="https://mail.google.com/mail/u/1/#search/alert" target="_blank" class="card slide-left">
+        <img src="images/Google Alert.jpg" alt="Google Alerts">
+        <div class="card-content"><h3>Google Alerts</h3><p>Alertes par email sur l'IA et le développement, LLM, diffusion models…</p></div>
+      </a>
+      <a href="https://www.inoreader.com" target="_blank" class="card slide-right">
+        <img src="images/Flux RSS.jpg" alt="RSS">
+        <div class="card-content"><h3>Flux RSS</h3><p>Centralisation de 50+ sources tech</p></div>
+      </a>
+      <a href="https://www.inoreader.com" target="_blank" class="card slide-left">
+        <img src="images/Inoreader.png" alt="Inoreader" style="background:#fff;padding:20px;">
+        <div class="card-content"><h3>Inoreader Pro</h3><p>Je reçois les flux et Inoreader me permet d'afficher les dernières actualités sur l'IA et le développement technologique</p></div>
+      </a>
+    </div>
+  </section>
+
+  <section id="skills" class="container">
+    <h2 class="section-title slide-left">Compétences</h2>
+    <div class="skills-grid">
+      <div class="skill-card slide-left"><i class="fa-solid fa-code"></i><h3>Web</h3><p>HTML • CSS • JS • PHP • Bootstrap</p></div>
+      <div class="skill-card slide-right"><i class="fa-solid fa-laptop-code"></i><h3>Programmation</h3><p>Python • Java • JavaFX</p></div>
+      <div class="skill-card slide-left"><i class="fa-solid fa-database"></i><h3>DB</h3><p>MySQL • CRUD • MAMP</p></div>
+      <div class="skill-card slide-right"><i class="fa-brands fa-git-alt"></i><h3>Outils</h3><p>Git • GitHub • Vercel • VS Code</p></div>
+    </div>
+  </section>
+
+  <section id="contact" class="container">
+    <h2 class="section-title slide-right">Me contacter</h2>
+    <p style="text-align:center; max-width:800px; margin:0 auto 3rem; color:var(--text-light);">
+      Un projet ? Une opportunité ? Un simple coucou ? Écrivez-moi !
+    </p>
+
+    <form id="contact-form" class="contact-form">
+      <div class="form-group">
+        <input type="text" name="name" required placeholder="Votre nom" />
+      </div>
+      <div class="form-group">
+        <input type="email" name="email" required placeholder="Votre email" />
+      </div>
+      <div class="form-group">
+        <input type="text" name="subject" required placeholder="Sujet" />
+      </div>
+      <div class="form-group">
+        <textarea name="message" rows="6" required placeholder="Votre message..."></textarea>
+      </div>
+      <button type="submit" class="btn-submit">
+        <span class="btn-text">Envoyer le message</span>
+        <span class="btn-loading" style="display:none;">Envoi en cours...</span>
+      </button>
+    </form>
+
+    <div id="success-message">
+      Merci ! Votre message a été envoyé avec succès. Je vous réponds très vite !
+    </div>
+
+    <div class="social-links">
+      <a href="https://www.facebook.com/arena.randrianaina" target="_blank">Facebook</a>
+      <a href="https://www.instagram.com/arenaior/" target="_blank">Instagram</a>
+      <a href="https://www.linkedin.com/in/arena-randrianaina" target="_blank">LinkedIn</a>
+      <a href="mailto:arenarandrianaina1@gmail.com">Email direct</a>
+    </div>
+  </section>
+
   <script>
+    // Navbar scroll
+    window.addEventListener('scroll', () => {
+      document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if(target) target.scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+
+    // Animations Intersection Observer
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('active');
+      });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.slide-left, .slide-right').forEach(el => observer.observe(el));
+
+    /* --- LOGIQUE DU CARROUSEL INFINI --- */
     const track = document.getElementById('projectTrack');
     const nextBtn = document.getElementById('nextBtn');
     const prevBtn = document.getElementById('prevBtn');
+    const originalCards = Array.from(track.children);
     
-    // On clone les éléments pour l'effet infini
-    const cards = Array.from(track.children);
-    cards.forEach(card => {
+    // Clonage pour l'effet cyclique
+    originalCards.forEach(card => {
         const clone = card.cloneNode(true);
         track.appendChild(clone);
     });
 
     let index = 0;
-    const totalOriginals = cards.length;
+    const totalOriginals = originalCards.length;
 
     function updateCarousel() {
         const cardWidth = track.children[0].offsetWidth;
@@ -228,6 +542,7 @@
         track.classList.remove('no-transition');
         updateCarousel();
 
+        // Si on arrive au bout des originaux, saut invisible au début
         if (index >= totalOriginals) {
             setTimeout(() => {
                 track.classList.add('no-transition');
@@ -254,8 +569,34 @@
     });
 
     window.addEventListener('resize', updateCarousel);
-    window.addEventListener('scroll', () => {
-      document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <script>
+    emailjs.init("YOUR_PUBLIC_KEY"); 
+
+    const form = document.getElementById('contact-form');
+    const success = document.getElementById('success-message');
+    const btnText = document.querySelector('.btn-text');
+    const btnLoading = document.querySelector('.btn-loading');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      btnText.style.display = 'none';
+      btnLoading.style.display = 'inline';
+
+      emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', this)
+        .then(() => {
+          success.style.display = 'block';
+          form.reset();
+          setTimeout(() => success.style.display = 'none', 6000);
+        }, (err) => {
+          alert('Erreur : ' + JSON.stringify(err));
+        })
+        .finally(() => {
+          btnText.style.display = 'inline';
+          btnLoading.style.display = 'none';
+        });
     });
   </script>
 </body>
