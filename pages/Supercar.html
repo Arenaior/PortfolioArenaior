@@ -23,10 +23,11 @@
       color: var(--text);
       line-height: 1.7;
       min-height: 100vh;
+      overflow-x: hidden;
     }
     a { text-decoration: none; color: inherit; }
 
-    /* Navbar identique au portfolio */
+    /* Navbar */
     .navbar {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -62,21 +63,17 @@
     .nav-links a:hover::after { width: 100%; }
     .nav-links a:hover { color: var(--primary); }
 
-    /* Hero du projet */
+    /* Hero */
     .project-hero {
-      height: 100vh;
-      min-height: 600px;
-      background: linear-gradient(rgba(15,23,42,0.92), rgba(15,23,42,0.97)),
+      height: 80vh;
+      min-height: 500px;
+      background: linear-gradient(rgba(15,23,42,0.85), rgba(15,23,42,0.95)),
                   url('../images/voitures.jpg') center/cover no-repeat;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
       position: relative;
-    }
-    .project-hero::before {
-      content: ''; position: absolute; inset: 0;
-      background: var(--gradient); opacity: 0.2;
     }
     .hero-content {
       position: relative;
@@ -85,7 +82,7 @@
       padding: 2rem;
     }
     .hero-content h1 {
-      font-size: 4.5rem;
+      font-size: clamp(2.5rem, 8vw, 4.5rem);
       font-weight: 800;
       background: var(--gradient);
       -webkit-background-clip: text;
@@ -93,94 +90,140 @@
       margin-bottom: 1rem;
     }
     .hero-content p {
-      font-size: 1.4rem;
+      font-size: 1.2rem;
       color: var(--text-light);
-      max-width: 700px;
-      margin: 0 auto 2rem;
+      margin-bottom: 2rem;
     }
 
-    /* Section cartes */
-    .container { max-width: 1200px; margin: 0 auto; padding: 120px 20px; }
-    .cards-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-      gap: 2.5rem;
-      margin-top: 4rem;
+    /* SLIDER SECTION */
+    .container { max-width: 1300px; margin: 0 auto; padding: 80px 20px; }
+    
+    .slider-container {
+      position: relative;
+      display: flex;
+      align-items: center;
+      margin-top: 2rem;
     }
+
+    .slider-wrapper {
+      overflow: hidden;
+      width: 100%;
+      padding: 30px 10px;
+    }
+
+    .cards-slider {
+      display: flex;
+      gap: 2rem;
+      transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+
     .card {
+      min-width: calc(33.333% - 1.34rem); /* 3 cartes sur desktop */
       background: var(--card);
       backdrop-filter: blur(14px);
       border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 20px;
-      padding: 2rem;
+      border-radius: 24px;
+      padding: 2.5rem;
       transition: all 0.4s ease;
-      height: 100%;
       display: flex;
       flex-direction: column;
+      height: 380px;
     }
+
     .card:hover {
-      transform: translateY(-15px);
+      transform: translateY(-10px);
       border-color: var(--primary);
-      box-shadow: 0 25px 50px rgba(6,255,165,0.25);
+      background: rgba(255, 255, 255, 0.12);
+      box-shadow: 0 20px 40px rgba(6,255,165,0.15);
     }
+
     .card h3 {
-      font-size: 1.7rem;
-      margin-bottom: 1rem;
+      font-size: 1.6rem;
+      margin-bottom: 1.2rem;
       color: var(--primary);
     }
+
     .card p {
-      flex-grow: 1;
       color: var(--text-light);
+      font-size: 1rem;
+      flex-grow: 1;
       margin-bottom: 1.5rem;
     }
+
     .btn {
-      align-self: flex-start;
-      padding: 12px 28px;
+      display: inline-block;
+      padding: 12px 24px;
       background: var(--gradient);
-      color: white;
+      color: #000;
       border-radius: 50px;
-      font-weight: 600;
-      transition: all 0.4s;
-      box-shadow: 0 8px 25px rgba(6,255,165,0.3);
+      font-weight: 700;
+      font-size: 0.9rem;
+      text-align: center;
+      transition: all 0.3s;
     }
     .btn:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 15px 35px rgba(6,255,165,0.4);
+      transform: scale(1.05);
+      box-shadow: 0 10px 20px rgba(6,255,165,0.3);
     }
+
+    /* Navigation Buttons */
+    .nav-btn {
+      background: var(--card);
+      border: 1px solid rgba(255,255,255,0.1);
+      color: var(--primary);
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      transition: all 0.3s;
+      z-index: 10;
+      flex-shrink: 0;
+    }
+    .nav-btn:hover {
+      background: var(--primary);
+      color: #000;
+      box-shadow: 0 0 25px rgba(6,255,165,0.4);
+    }
+    .prev-btn { margin-right: 15px; }
+    .next-btn { margin-left: 15px; }
 
     .btn-home {
       display: block;
       width: fit-content;
-      margin: 3rem auto 0;
+      margin: 4rem auto 0;
       padding: 14px 40px;
-      background: var(--card);
-      border: 1px solid rgba(255,255,255,0.2);
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
       color: var(--text);
+      border-radius: 50px;
+      font-weight: 600;
+      transition: all 0.3s;
     }
     .btn-home:hover {
-      background: var(--primary);
-      color: #000;
-      border-color: var(--primary);
+      background: white;
+      color: black;
     }
-
-    /* Animations gauche/droite */
-    .slide-left { opacity: 0; transform: translateX(-80px); transition: all 1s ease-out; }
-    .slide-right { opacity: 0; transform: translateX(80px); transition: all 1s ease-out; }
-    .slide-left.active, .slide-right.active { opacity: 1; transform: translateX(0); }
 
     /* Responsive */
-    @media (max-width: 768px) {
-      .hero-content h1 { font-size: 3.5rem; }
-      .nav-links { gap: 1rem; font-size: 0.95rem; }
+    @media (max-width: 1100px) {
+      .card { min-width: calc(50% - 1rem); } /* 2 cartes */
     }
-    @media (max-width: 480px) {
-      .hero-content h1 { font-size: 2.8rem; }
+    @media (max-width: 768px) {
+      .card { min-width: 100%; } /* 1 carte */
+      .slider-container { flex-direction: column; }
+      .nav-btn { position: absolute; bottom: -70px; }
+      .prev-btn { left: 25%; }
+      .next-btn { right: 25%; }
+      .container { padding-bottom: 120px; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Navbar (identique au portfolio) -->
   <nav class="navbar" id="navbar">
     <div class="nav-logo">Arena</div>
     <div class="nav-links">
@@ -191,54 +234,125 @@
     </div>
   </nav>
 
-  <!-- Hero du projet Supercar -->
   <header class="project-hero">
     <div class="hero-content">
       <h1>Projet Supercar</h1>
-      <p>Site web complet de concession automobile haut de gamme — Réservation d’essai, espace admin sécurisé, design responsive avec Bootstrap + PHP/MySQL</p>
+      <p>Concession automobile haut de gamme — Full-stack PHP/MySQL & Bootstrap</p>
       <a href="https://arenaiorr.alwaysdata.net" target="_blank" class="btn">Visiter le site live</a>
     </div>
   </header>
 
-  <!-- Cartes de détails -->
   <section class="container">
-    <div class="cards-grid">
-      <div class="card slide-left">
-        <h3>Contexte du projet</h3>
-        <p>Projet de 2ème année réalisé en équipe — gestion de projet, cahier des charges, architecture MVC et développement full-stack.</p>
-        <a href="../Contexte%20Supercar.pdf" target="_blank" class="btn">Voir le contexte (PDF)</a>
+    <div class="slider-container">
+      <button class="nav-btn prev-btn" aria-label="Précédent"><i class="fas fa-chevron-left"></i></button>
+      
+      <div class="slider-wrapper">
+        <div class="cards-slider" id="cardsSlider">
+          <div class="card">
+            <h3>Contexte du projet</h3>
+            <p>Analyse des besoins pour Supercar et MultiSys. Étude du marché automobile et définition des objectifs stratégiques.</p>
+            <a href="../Contexte%20Supercar.pdf" target="_blank" class="btn">Voir le PDF</a>
+          </div>
+
+          <div class="card">
+            <h3>Fonctionnalités</h3>
+            <p>Détails techniques : Catalogue dynamique, pagination, formulaires de contact et module de demande d'essai.</p>
+            <a href="../PROJET-SUPERCAR.pdf" target="_blank" class="btn">Voir Présentation</a>
+          </div>
+
+          <div class="card">
+            <h3>Site Live</h3>
+            <p>Déploiement sur Alwaysdata. Testez l'interface client et la fluidité de la navigation responsive.</p>
+            <a href="https://arenaiorr.alwaysdata.net" target="_blank" class="btn">Accéder au site</a>
+          </div>
+
+          <div class="card">
+            <h3>Rapport complet</h3>
+            <p>Analyse post-projet : Méthodologie Agile, gestion de la base de données MySQL et défis techniques résolus.</p>
+            <a href="../Rapport_Supercar.pdf" target="_blank" class="btn">Lire le rapport</a>
+          </div>
+
+          <div class="card">
+            <h3>Fiche descriptive</h3>
+            <p>Description de la réalisation : Fonctionnalités, technologies utilisées et résultats obtenus.</p>
+            <a href="../Fiche Descriptive Supercar.pdf" class="btn">Lire fiche</a>
+          </div>
+
+          <div class="card">
+            <h3>Tableau de synthèse</h3>
+            <p>Affichage des résultats et performances du projet.</p>
+            <a href="../Tableau de synthèses.pdf" class="btn">Afficher le tableau</a>
+          </div>
+        </div>
       </div>
 
-      <div class="card slide-right">
-        <h3>Présentation & fonctionnalités</h3>
-        <p>Découvrez le cahier des charges complet, les maquettes, les choix techniques et toutes les fonctionnalités implémentées.</p>
-        <a href="../PROJET-SUPERCAR.pdf" target="_blank" class="btn">Voir la présentation (PDF)</a>
-      </div>
-
-      <div class="card slide-left">
-        <h3>Site en production</h3>
-        <p>Testez le site en direct : catalogue de supercars, formulaire de réservation d’essai, interface admin avec authentification.</p>
-        <a href="https://arenaiorr.alwaysdata.net" target="_blank" class="btn">Accéder au site</a>
-      </div>
+      <button class="nav-btn next-btn" aria-label="Suivant"><i class="fas fa-chevron-right"></i></button>
     </div>
 
     <a href="../index.html" class="btn-home">Retour au portfolio</a>
   </section>
 
   <script>
-    // Navbar scroll effect
+    // Navbar Scroll Effect
     window.addEventListener('scroll', () => {
       document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
     });
 
-    // Animation gauche/droite au scroll
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) entry.target.classList.add('active');
-      });
-    }, { threshold: 0.15 });
+    // SLIDER LOGIC
+    const slider = document.getElementById('cardsSlider');
+    const nextBtn = document.querySelector('.next-btn');
+    const prevBtn = document.querySelector('.prev-btn');
+    
+    let currentIndex = 0;
 
-    document.querySelectorAll('.slide-left, .slide-right').forEach(el => observer.observe(el));
+    function getVisibleCards() {
+      if (window.innerWidth > 1100) return 3;
+      if (window.innerWidth > 768) return 2;
+      return 1;
+    }
+
+    function updateSlider() {
+      const card = document.querySelector('.card');
+      const cardWidth = card.offsetWidth;
+      const gap = parseFloat(getComputedStyle(slider).gap);
+      
+      // Calcul du déplacement
+      const moveDistance = currentIndex * (cardWidth + gap);
+      slider.style.transform = `translateX(-${moveDistance}px)`;
+    }
+
+    nextBtn.addEventListener('click', () => {
+      const totalCards = slider.children.length;
+      const visibleCards = getVisibleCards();
+      
+      if (currentIndex >= totalCards - visibleCards) {
+        currentIndex = 0; // Retour au début
+      } else {
+        currentIndex++;
+      }
+      updateSlider();
+    });
+
+    prevBtn.addEventListener('click', () => {
+      const totalCards = slider.children.length;
+      const visibleCards = getVisibleCards();
+      
+      if (currentIndex <= 0) {
+        currentIndex = totalCards - visibleCards; // Aller à la fin
+      } else {
+        currentIndex--;
+      }
+      updateSlider();
+    });
+
+    // Ajustement lors du redimensionnement de l'écran
+    window.addEventListener('resize', () => {
+      currentIndex = 0; // Reset pour éviter les décalages bizarres
+      updateSlider();
+    });
+
+    // Initialisation
+    updateSlider();
   </script>
 </body>
 </html>
