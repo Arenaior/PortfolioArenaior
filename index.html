@@ -235,30 +235,7 @@
       background: rgba(6,255,165,0.06);
     }
 
-    /* Contact */
-    .contact-form { display: flex; flex-direction: column; gap: 1.5rem; max-width: 700px; margin: 0 auto; }
-    .form-group input, .form-group textarea {
-      width: 100%; padding: 1rem 1.5rem;
-      background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15);
-      border-radius: 16px; color: white; font-size: 1rem;
-      backdrop-filter: blur(10px); transition: all 0.3s;
-    }
-    .form-group input:focus, .form-group textarea:focus {
-      outline: none; border-color: var(--primary); box-shadow: 0 0 20px rgba(6,255,165,0.3);
-    }
-    ::placeholder { color: #94a3b8; }
-    .btn-submit {
-      align-self: center; padding: 16px 50px; background: var(--gradient);
-      color: white; border: none; border-radius: 50px; font-size: 1.1rem;
-      font-weight: 600; cursor: pointer; transition: all 0.4s;
-      box-shadow: 0 10px 30px rgba(6,255,165,0.3); margin-top: 1rem;
-    }
-    .btn-submit:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(6,255,165,0.4); }
-    #success-message {
-      display: none; text-align: center; margin-top: 2rem; padding: 1.5rem;
-      background: rgba(6,255,165,0.15); border-radius: 16px;
-      border: 1px solid var(--primary); color: var(--primary); font-weight: 600;
-    }
+
     .social-links { display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; margin-top: 5rem; }
     .social-links a {
       padding: 16px 36px; background: var(--card);
@@ -432,7 +409,6 @@
           en panne, les délais de résolution et la charge de travail des techniciens.</p>
         </div>
 
-
         <div class="glpi-card slide-right">
           <div class="glpi-icon">🔒</div>
           <h4>Sécurité & Licences</h4>
@@ -448,9 +424,6 @@
         <span class="glpi-badge">PHP / MySQL</span>
         <span class="glpi-badge">Ticketing</span>
         <span class="glpi-badge">Parc Informatique</span>
-        <span class="glpi-badge">Helpdesk IT</span>
-        <span class="glpi-badge">LDAP / AD</span>
-        <span class="glpi-badge">OCS Inventory</span>
         <span class="glpi-badge">Rapports</span>
       </div>
 
@@ -460,28 +433,17 @@
   <section id="contact" class="container">
     <h2 class="section-title slide-right">Me contacter</h2>
     <p style="text-align:center; max-width:800px; margin:0 auto 3rem; color:var(--text-light);">
-      Un projet ? Une opportunité ? Un simple coucou ? Écrivez-moi !
+      Un projet ? Une opportunité ? Un simple coucou ? Retrouvez-moi sur les réseaux !
     </p>
-    <form id="contact-form" class="contact-form">
-      <div class="form-group"><input type="text" name="name" required placeholder="Votre nom" /></div>
-      <div class="form-group"><input type="email" name="email" required placeholder="Votre email" /></div>
-      <div class="form-group"><input type="text" name="subject" required placeholder="Sujet" /></div>
-      <div class="form-group"><textarea name="message" rows="6" required placeholder="Votre message..."></textarea></div>
-      <button type="submit" class="btn-submit">
-        <span class="btn-text">Envoyer le message</span>
-        <span class="btn-loading" style="display:none;">Envoi en cours...</span>
-      </button>
-    </form>
-    <div id="success-message">Merci ! Votre message a été envoyé avec succès. Je vous réponds très vite !</div>
     <div class="social-links">
       <a href="https://www.facebook.com/arena.randrianaina" target="_blank">Facebook</a>
       <a href="https://www.instagram.com/arenaior/" target="_blank">Instagram</a>
       <a href="https://www.linkedin.com/in/arena-randrianaina" target="_blank">LinkedIn</a>
-      <a href="mailto:arenarandrianaina1@gmail.com">Email direct</a>
+      <a href="/cdn-cgi/l/email-protection#7c1d0e19121d0e1d12180e151d121d15121d4d3c1b111d1510521f1311">Email direct</a>
     </div>
   </section>
 
-  <script>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     window.addEventListener('scroll', () => {
       document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
     });
@@ -543,9 +505,4 @@
           success.style.display = 'block';
           form.reset();
           setTimeout(() => success.style.display = 'none', 6000);
-        }, (err) => { alert('Erreur : ' + JSON.stringify(err)); })
-        .finally(() => { btnText.style.display = 'inline'; btnLoading.style.display = 'none'; });
-    });
-  </script>
-</body>
-</html>
+        }, (err) => { alert('Erreur : ' +
