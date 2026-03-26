@@ -15,6 +15,7 @@
 --primary: #06ffa5;
 --accent: #00d4ff;
 --gradient: linear-gradient(135deg, #06ffa5, #00d4ff);
+--windows-blue: linear-gradient(135deg, #0078d4, #00bcf2);
     }
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body {
@@ -26,6 +27,7 @@ min-height: 100vh;
 overflow-x: hidden;
     }
 a { text-decoration: none; color: inherit; }
+
 /* Navbar */
 .navbar {
 position: fixed;
@@ -61,17 +63,22 @@ background: var(--gradient); transition: width 0.4s;
     }
 .nav-links a:hover::after { width: 100%; }
 .nav-links a:hover { color: var(--primary); }
-/* Hero */
+
+/* Hero Section (Style Gasik'Art) */
 .project-hero {
-height: 80vh;
-min-height: 500px;
-background: linear-gradient(rgba(15,23,42,0.85), rgba(15,23,42,0.95)),
+height: 100vh;
+min-height: 600px;
+background: linear-gradient(rgba(15,23,42,0.92), rgba(15,23,42,0.97)),
 url('../images/vms.jpg') center/cover no-repeat;
 display: flex;
 align-items: center;
 justify-content: center;
 text-align: center;
 position: relative;
+    }
+.project-hero::before {
+content: ''; position: absolute; inset: 0;
+background: var(--gradient); opacity: 0.15;
     }
 .hero-content {
 position: relative;
@@ -88,10 +95,44 @@ color: transparent;
 margin-bottom: 1rem;
     }
 .hero-content p {
-font-size: 1.2rem;
+font-size: 1.4rem;
 color: var(--text-light);
-margin-bottom: 2rem;
+margin-bottom: 2.5rem;
     }
+
+/* Button Group */
+.btn-group {
+display: flex;
+gap: 15px;
+justify-content: center;
+flex-wrap: wrap;
+    }
+.btn {
+padding: 14px 30px;
+color: white;
+border-radius: 50px;
+font-weight: 600;
+transition: all 0.4s;
+display: inline-flex;
+align-items: center;
+gap: 10px;
+cursor: pointer;
+border: none;
+    }
+.btn-macos {
+background: var(--gradient);
+color: #000;
+box-shadow: 0 8px 25px rgba(6,255,165,0.3);
+    }
+.btn-windows {
+background: var(--windows-blue);
+box-shadow: 0 8px 25px rgba(0, 120, 212, 0.3);
+    }
+.btn:hover {
+transform: translateY(-5px);
+filter: brightness(1.1);
+    }
+
 /* SLIDER SECTION */
 .container { max-width: 1300px; margin: 0 auto; padding: 80px 20px; }
 .slider-container {
@@ -139,7 +180,8 @@ font-size: 1rem;
 flex-grow: 1;
 margin-bottom: 1.5rem;
     }
-.btn {
+
+.btn-card {
 display: inline-block;
 padding: 12px 24px;
 background: var(--gradient);
@@ -150,10 +192,7 @@ font-size: 0.9rem;
 text-align: center;
 transition: all 0.3s;
     }
-.btn:hover {
-transform: scale(1.05);
-box-shadow: 0 10px 20px rgba(6,255,165,0.3);
-    }
+
 /* Navigation Buttons */
 .nav-btn {
 background: var(--card);
@@ -178,6 +217,7 @@ box-shadow: 0 0 25px rgba(6,255,165,0.4);
     }
 .prev-btn { margin-right: 15px; }
 .next-btn { margin-left: 15px; }
+
 .btn-home {
 display: block;
 width: fit-content;
@@ -194,12 +234,14 @@ transition: all 0.3s;
 background: white;
 color: black;
     }
+
 /* Responsive */
 @media (max-width: 1100px) {
 .card { min-width: calc(50% - 1rem); }
     }
 @media (max-width: 768px) {
 .card { min-width: 100%; }
+.hero-content h1 { font-size: 3rem; }
 .slider-container { flex-direction: column; }
 .nav-btn { position: absolute; bottom: -70px; }
 .prev-btn { left: 25%; }
@@ -223,6 +265,14 @@ color: black;
 <div class="hero-content">
 <h1>Projet VMS</h1>
 <p>Système complet de gestion de vouchers avec QR Code — JavaFX + PostgreSQL</p>
+<div class="btn-group">
+    <a href="https://github.com/Arenaior/VMS/releases/download/V1.0.0/VMS-1.0.dmg" class="btn btn-macos">
+      <i class="fab fa-apple"></i> Télécharger (MacOS)
+    </a>
+    <a href="#" class="btn btn-windows" onclick="alert('La version Windows sera bientôt disponible !')">
+      <i class="fab fa-windows"></i> Télécharger (Windows)
+    </a>
+</div>
 </div>
 </header>
 
@@ -235,37 +285,37 @@ color: black;
   <div class="card">
     <h3>Contexte du projet</h3>
     <p>VMS (Voucher Management System) est une application JavaFX développée pour automatiser la gestion complète de bons de valeur : de la création de la demande jusqu'à l'émission et l'export des vouchers avec QR Code scannable.</p>
-    <a href="VMS_Presentation.pptx" target="_blank" class="btn">Voir la présentation</a>
+    <a href="VMS_Presentation.pptx" target="_blank" class="btn-card">Voir la présentation</a>
   </div>
 
   <div class="card">
     <h3>Présentation du projet</h3>
     <p>Projet VMS mis en place pour gérer efficacement les vouchers avec une interface utilisateur moderne et une base de données robuste.</p>
-    <a href="../VMS_Presentation.pdf" target="_blank" class="btn">Voir la présentation</a>
+    <a href="../VMS_Presentation.pdf" target="_blank" class="btn-card">Voir la présentation</a>
   </div>
 
   <div class="card">
     <h3>Gestion des rôles</h3>
     <p>5 rôles distincts : SuperUser, Superviseur, Initiateur, Approbateur et Comptable. Chaque rôle accède uniquement aux sections qui lui sont autorisées — le menu s'adapte dynamiquement à la connexion.</p>
-    <a href="VMS_Presentation.pptx" target="_blank" class="btn">Voir la matrice</a>
+    <a href="VMS_Presentation.pptx" target="_blank" class="btn-card">Voir la matrice</a>
   </div>
 
   <div class="card">
     <h3>Export & QR Code</h3>
     <p>Chaque voucher est exportable en image PNG (620×320px) avec son QR Code unique scannable généré via ZXing. Filtres avancés par client, date et statut. Sélection multiple et export en lot.</p>
-    <a href="VMS_Presentation.pptx" target="_blank" class="btn">Voir l'export</a>
+    <a href="VMS_Presentation.pptx" target="_blank" class="btn-card">Voir l'export</a>
   </div>
 
   <div class="card">
     <h3>Stack technique</h3>
     <p>Développé en Java 17 avec JavaFX 17 + FXML. Base de données PostgreSQL hébergée sur Alwaysdata. Dépendances Maven : ZXing 3.5.3 (QR Code), driver PostgreSQL 42.7.3. Architecture MVC avec couche DAO.</p>
-    <a href="VMS_Presentation.pptx" target="_blank" class="btn">Voir l'architecture</a>
+    <a href="VMS_Presentation.pptx" target="_blank" class="btn-card">Voir l'architecture</a>
   </div>
 
   <div class="card">
     <h3>CRUD Clients & Users</h3>
     <p>Gestion complète des clients (Nom, Email, Adresse, Téléphone) et des utilisateurs (Nom, Prénom, Rôle, Statut Actif/Inactif). Vérification des doublons email, confirmations avant suppression.</p>
-    <a href="VMS_Presentation.pptx" target="_blank" class="btn">Voir le CRUD</a>
+    <a href="VMS_Presentation.pptx" target="_blank" class="btn-card">Voir le CRUD</a>
   </div>
 
 </div>
