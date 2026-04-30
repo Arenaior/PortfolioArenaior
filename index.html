@@ -235,7 +235,6 @@
       background: rgba(6,255,165,0.06);
     }
 
-
     .social-links { display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; margin-top: 5rem; }
     .social-links a {
       padding: 16px 36px; background: var(--card);
@@ -276,7 +275,7 @@
     <div class="hero-content">
       <h1>Arena Randrianaina</h1>
       <p>Développeur Web • Passionné d'IA & Innovation</p>
-      <a href="CV Arenaior.pdf" class="btn">Télécharger CV</a>
+      <a href="ArenaCV.pdf" class="btn">Voir CV</a>
     </div>
   </header>
 
@@ -369,64 +368,43 @@
     </div>
   </section>
 
-  <!-- ===== SECTION GLPI ===== -->
+  <!-- ===== SECTION GLPI PERSONNALISÉE ===== -->
   <section id="glpi" class="glpi-section">
     <div class="container">
-      <h2 class="section-title slide-left">GLPI</h2>
+      <h2 class="section-title slide-left">Gestion de Parc & Maintenance (GLPI)</h2>
       <p class="glpi-intro slide-right">
-        <strong>GLPI</strong> (Gestionnaire Libre de Parc Informatique) est un outil open-source 
-        de gestion de parc informatique et de helpdesk IT. Il permet de centraliser la gestion 
-        des équipements, des utilisateurs et des tickets d'incidents au sein d'une organisation.
+        Au-delà du développement, j'utilise <strong>GLPI</strong> pour assurer la pérennité de mes projets et la disponibilité de mon environnement de travail. Voici comment j'applique les principes de gestion de parc informatique :
       </p>
 
       <div class="glpi-grid">
-
+        <!-- Cas 1: Maintenance Hardware/OS -->
         <div class="glpi-card slide-left">
-          <div class="glpi-icon">🖥️</div>
-          <h4>Gestion du parc</h4>
-          <p>Inventaire complet du matériel informatique : ordinateurs, imprimantes, serveurs, 
-          périphériques. Suivi de l'état, de la localisation et du cycle de vie de chaque équipement.</p>
+          <div class="glpi-icon">💻</div>
+          <h4>Maintenance de l'environnement</h4>
+          <p>Suivi et résolution d'incidents critiques sur ma machine de production (Gestion de <strong>Kernel Panics</strong> sur macOS, optimisation système). Documentation des solutions dans une base de connaissances pour réduire le temps d'arrêt.</p>
         </div>
 
+        <!-- Cas 2: Inventaire Logiciel -->
         <div class="glpi-card slide-right">
-          <div class="glpi-icon">🎫</div>
-          <h4>Ticketing & Helpdesk</h4>
-          <p>Création et suivi des tickets d'incidents IT. Attribution aux techniciens, 
-          priorisation, historique des interventions et résolution des problèmes utilisateurs.</p>
+          <div class="glpi-icon">📦</div>
+          <h4>Inventaire des déploiements</h4>
+          <p>Recensement et gestion du cycle de vie des applications livrées (<strong>Resto & Boutique Artisanale</strong>). Suivi des versions, des environnements PHP/MySQL cibles et des configurations nécessaires au bon fonctionnement.</p>
         </div>
 
+        <!-- Cas 3: Support & Evolution -->
         <div class="glpi-card slide-left">
-          <div class="glpi-icon">👥</div>
-          <h4>Gestion des utilisateurs</h4>
-          <p>Annuaire des utilisateurs, gestion des droits d'accès et des groupes. 
-          Association des équipements aux utilisateurs et suivi des affectations.</p>
+          <div class="glpi-icon">🛠️</div>
+          <h4>Support & Assistance (Helpdesk)</h4>
+          <p>Simulation et organisation de la remontée de bugs pour mes applications. Utilisation du système de <strong>Ticketing</strong> pour prioriser les corrections et les demandes d'évolution des utilisateurs finaux.</p>
         </div>
-
-        <div class="glpi-card slide-right">
-          <div class="glpi-icon">📊</div>
-          <h4>Rapports & Statistiques</h4>
-          <p>Tableaux de bord et rapports sur l'activité du helpdesk, les équipements 
-          en panne, les délais de résolution et la charge de travail des techniciens.</p>
-        </div>
-
-        <div class="glpi-card slide-right">
-          <div class="glpi-icon">🔒</div>
-          <h4>Sécurité & Licences</h4>
-          <p>Gestion des licences logicielles, suivi des contrats de maintenance 
-          et alertes d'expiration. Contrôle de conformité du parc informatique.</p>
-        </div>
-
       </div>
 
-      <!-- Badges technos -->
       <div class="glpi-badge-row slide-left">
-        <span class="glpi-badge">Open Source</span>
-        <span class="glpi-badge">PHP / MySQL</span>
-        <span class="glpi-badge">Ticketing</span>
-        <span class="glpi-badge">Parc Informatique</span>
-        <span class="glpi-badge">Rapports</span>
+        <span class="glpi-badge">Gestion d'Incidents</span>
+        <span class="glpi-badge">Inventaire Applicatif</span>
+        <span class="glpi-badge">Base de Connaissances</span>
+        <span class="glpi-badge">Maintenance Curative</span>
       </div>
-
     </div>
   </section>
 
@@ -439,14 +417,17 @@
       <a href="https://www.facebook.com/arena.randrianaina" target="_blank">Facebook</a>
       <a href="https://www.instagram.com/arenaior/" target="_blank">Instagram</a>
       <a href="https://www.linkedin.com/in/arena-randrianaina" target="_blank">LinkedIn</a>
-      <a href="/cdn-cgi/l/email-protection#7c1d0e19121d0e1d12180e151d121d15121d4d3c1b111d1510521f1311">Email direct</a>
+      <a href="mailto:arena.randrianaina@email.com">Email direct</a>
     </div>
   </section>
 
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  <script>
+    /* Navbar Scroll */
     window.addEventListener('scroll', () => {
       document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
     });
+
+    /* Smooth Scroll */
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function(e) {
         e.preventDefault();
@@ -454,55 +435,65 @@
         if(target) target.scrollIntoView({ behavior: 'smooth' });
       });
     });
+
+    /* Intersection Observer for Animations */
     const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
+      entries.forEach(entry => { 
+        if (entry.isIntersecting) entry.target.classList.add('active'); 
+      });
     }, { threshold: 0.15 });
+
     document.querySelectorAll('.slide-left, .slide-right').forEach(el => observer.observe(el));
 
-    /* Carrousel */
+    /* Carousel Logic */
     const track = document.getElementById('projectTrack');
     const nextBtn = document.getElementById('nextBtn');
     const prevBtn = document.getElementById('prevBtn');
+    
     const originalCards = Array.from(track.children);
     originalCards.forEach(card => track.appendChild(card.cloneNode(true)));
+    
     let index = 0;
     const totalOriginals = originalCards.length;
+
     function updateCarousel() {
       const cardWidth = track.children[0].offsetWidth;
-      const gap = parseFloat(getComputedStyle(track).gap);
+      const gap = parseFloat(getComputedStyle(track).gap) || 0;
       track.style.transform = `translateX(${-index * (cardWidth + gap)}px)`;
     }
+
     nextBtn.addEventListener('click', () => {
       index++;
       track.classList.remove('no-transition');
       updateCarousel();
       if (index >= totalOriginals) {
-        setTimeout(() => { track.classList.add('no-transition'); index = 0; updateCarousel(); }, 600);
+        setTimeout(() => { 
+          track.classList.add('no-transition'); 
+          index = 0; 
+          updateCarousel(); 
+        }, 600);
       }
     });
+
     prevBtn.addEventListener('click', () => {
       if (index <= 0) {
-        track.classList.add('no-transition'); index = totalOriginals; updateCarousel();
-        setTimeout(() => { track.classList.remove('no-transition'); index--; updateCarousel(); }, 10);
-      } else { index--; updateCarousel(); }
+        track.classList.add('no-transition'); 
+        index = totalOriginals; 
+        updateCarousel();
+        setTimeout(() => { 
+          track.classList.remove('no-transition'); 
+          index--; 
+          updateCarousel(); 
+        }, 10);
+      } else { 
+        index--; 
+        updateCarousel(); 
+      }
     });
+
     window.addEventListener('resize', updateCarousel);
+    updateCarousel(); // Initial call
   </script>
 
-  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-  <script>
-    emailjs.init("YOUR_PUBLIC_KEY");
-    const form = document.getElementById('contact-form');
-    const success = document.getElementById('success-message');
-    const btnText = document.querySelector('.btn-text');
-    const btnLoading = document.querySelector('.btn-loading');
-    form.addEventListener('submit', function(e) {
-      e.preventDefault();
-      btnText.style.display = 'none';
-      btnLoading.style.display = 'inline';
-      emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', this)
-        .then(() => {
-          success.style.display = 'block';
-          form.reset();
-          setTimeout(() => success.style.display = 'none', 6000);
-        }, (err) => { alert('Erreur : ' +
+</body>
+</html>
