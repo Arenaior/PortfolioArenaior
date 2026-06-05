@@ -168,7 +168,7 @@
     .glpi-intro strong { color: var(--primary); }
     .glpi-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 2rem;
       margin-bottom: 3rem;
     }
@@ -181,6 +181,9 @@
       transition: all 0.4s;
       position: relative;
       overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
     .glpi-card::before {
       content: '';
@@ -208,31 +211,92 @@
       color: #000;
     }
     .glpi-card h4 {
-      font-size: 1.1rem;
+      font-size: 1.15rem;
       font-weight: 700;
       color: var(--text);
-      margin-bottom: 0.6rem;
+      margin-bottom: 1rem;
     }
     .glpi-card p {
       font-size: 0.92rem;
       color: var(--text-light);
       line-height: 1.6;
+      flex-grow: 1;
     }
-    .glpi-badge-row {
+    .glpi-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 1.5rem 0;
+      flex-grow: 1;
+    }
+    .glpi-list li {
+      font-size: 0.88rem;
+      color: var(--text-light);
+      margin-bottom: 0.6rem;
       display: flex;
-      flex-wrap: wrap;
-      gap: 0.8rem;
-      justify-content: center;
-      margin-top: 2rem;
+      align-items: flex-start;
+      gap: 0.6rem;
+      line-height: 1.4;
     }
-    .glpi-badge {
-      padding: 8px 20px;
-      border-radius: 50px;
-      font-size: 0.85rem;
-      font-weight: 600;
-      border: 1px solid rgba(6,255,165,0.3);
+    .glpi-list li i {
       color: var(--primary);
-      background: rgba(6,255,165,0.06);
+      font-size: 0.75rem;
+      margin-top: 0.3rem;
+    }
+    .glpi-card-footer {
+      margin-top: auto;
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--primary);
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding-top: 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .glpi-card-footer i {
+      font-size: 0.9rem;
+    }
+    .glpi-status-container {
+      display: flex;
+      justify-content: center;
+      margin-top: 3.5rem;
+    }
+    .glpi-status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.7rem;
+      padding: 10px 24px;
+      border-radius: 50px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      border: 1px solid rgba(0, 212, 255, 0.3);
+      color: var(--accent);
+      background: rgba(0, 212, 255, 0.05);
+      box-shadow: 0 4px 15px rgba(0, 214, 255, 0.05);
+    }
+    .pulse-dot {
+      width: 8px;
+      height: 8px;
+      background-color: var(--accent);
+      border-radius: 50%;
+      box-shadow: 0 0 0 0 rgba(0, 212, 255, 0.7);
+      animation: pulse 1.6s infinite;
+    }
+    @keyframes pulse {
+      0% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(0, 212, 255, 0.7);
+      }
+      70% {
+        transform: scale(1);
+        box-shadow: 0 0 0 8px rgba(0, 212, 255, 0);
+      }
+      100% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(0, 212, 255, 0);
+      }
     }
 
     .social-links { display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; margin-top: 5rem; }
@@ -358,7 +422,6 @@
   </section>
 
   <section id="skills" class="container">
-    <h2 class="section-title slide-left">Compétences</h2>
     <div class="skills-grid">
       <div class="skill-card slide-left"><i class="fa-solid fa-code"></i><h3>Web</h3><p>HTML • CSS • JS • Bootstrap</p></div>
       <div class="skill-card slide-right"><i class="fa-solid fa-laptop-code"></i><h3>Programmation</h3><p>Java • JavaFX • Python</p></div>
@@ -367,39 +430,84 @@
     </div>
   </section>
 
-  <!-- ===== SECTION GLPI PERSONNALISÉE ===== -->
+  <!-- ===== SECTION GLPI OPTIMISÉE ===== -->
   <section id="glpi" class="glpi-section">
     <div class="container">
-      <h2 class="section-title slide-left">Gestion de Parc & Maintenance (GLPI)</h2>
+      <h2 class="section-title slide-left">Gérer le patrimoine informatique (GLPI)</h2>
       <p class="glpi-intro slide-right">
-        Au-delà du développement, j'utilise <strong>GLPI</strong> pour assurer la pérennité de mes applications Java et la disponibilité de mon environnement de travail. Voici mon approche de la gestion IT :
+        En complément de mon parcours de développeur, j'expérimente la gestion d'infrastructures informatiques et le support utilisateur avec la solution open source <strong>GLPI</strong>.
       </p>
 
       <div class="glpi-grid">
+        <!-- Card 1: Installation -->
         <div class="glpi-card slide-left">
-          <div class="glpi-icon">💻</div>
-          <h4>Maintenance de l'environnement</h4>
-          <p>Suivi et résolution d'incidents critiques sur ma machine de production (Gestion de <strong>Kernel Panics</strong> sur macOS, optimisation système). Documentation des solutions pour minimiser l'impact sur mes projets IntelliJ.</p>
+          <div>
+            <div class="glpi-icon"><i class="fa-solid fa-download"></i></div>
+            <h4>Installation & Déploiement</h4>
+            <ul class="glpi-list">
+              <li><i class="fa-solid fa-chevron-right"></i> Installation de MAMP en local</li>
+              <li><i class="fa-solid fa-chevron-right"></i> Configuration de la BDD MySQL</li>
+              <li><i class="fa-solid fa-chevron-right"></i> Initialisation de l'interface GLPI</li>
+            </ul>
+          </div>
+          <div class="glpi-card-footer">
+            <i class="fa-solid fa-graduation-cap"></i> sur nos tp de classes
+          </div>
         </div>
 
+        <!-- Card 2: Tickets -->
         <div class="glpi-card slide-right">
-          <div class="glpi-icon">📦</div>
-          <h4>Suivi des déploiements</h4>
-          <p>Recensement des versions de mes applications <strong>Java (Desktop)</strong> et de l'état des bases de données <strong>PostgreSQL</strong> associées. Gestion du cycle de vie des produits livrés (Resto & Boutique).</p>
+          <div>
+            <div class="glpi-icon"><i class="fa-solid fa-ticket"></i></div>
+            <h4>Gestion des Tickets</h4>
+            <ul class="glpi-list">
+              <li><i class="fa-solid fa-chevron-right"></i> Création de demandes & d'incidents</li>
+              <li><i class="fa-solid fa-chevron-right"></i> Suivi et attribution à un technicien</li>
+              <li><i class="fa-solid fa-chevron-right"></i> Cycles de vie et changement de statuts</li>
+            </ul>
+          </div>
+          <div class="glpi-card-footer">
+            <i class="fa-solid fa-person-digging"></i> exercices pratiques en classe
+          </div>
         </div>
 
+        <!-- Card 3: Gestion de parc -->
         <div class="glpi-card slide-left">
-          <div class="glpi-icon">🛠️</div>
-          <h4>Support & Assistance</h4>
-          <p>Simulation de remontée de bugs via le système de <strong>Ticketing</strong>. Centralisation des demandes d'évolution utilisateur et priorisation des correctifs sur le code source Java.</p>
+          <div>
+            <div class="glpi-icon"><i class="fa-solid fa-desktop"></i></div>
+            <h4>Gestion de Parc</h4>
+            <ul class="glpi-list">
+              <li><i class="fa-solid fa-chevron-right"></i> Ajout d'ordinateurs & périphériques</li>
+              <li><i class="fa-solid fa-chevron-right"></i> Réalisation de l'inventaire matériel</li>
+            </ul>
+          </div>
+          <div class="glpi-card-footer">
+            <i class="fa-solid fa-diagram-project"></i> tp : création d'un petit parc
+          </div>
+        </div>
+
+        <!-- Card 4: Utilisateurs -->
+        <div class="glpi-card slide-right">
+          <div>
+            <div class="glpi-icon"><i class="fa-solid fa-users-gear"></i></div>
+            <h4>Gestion des Utilisateurs</h4>
+            <ul class="glpi-list">
+              <li><i class="fa-solid fa-chevron-right"></i> Création de comptes utilisateurs</li>
+              <li><i class="fa-solid fa-chevron-right"></i> Attribution de profils d'accès</li>
+              <li><i class="fa-solid fa-chevron-right"></i> Configuration globale des droits</li>
+            </ul>
+          </div>
+          <div class="glpi-card-footer">
+            <i class="fa-solid fa-user-shield"></i> administration & profils
+          </div>
         </div>
       </div>
 
-      <div class="glpi-badge-row slide-left">
-        <span class="glpi-badge">Gestion d'Incidents</span>
-        <span class="glpi-badge">Inventaire Applicatif (Java/PostgreSQL)</span>
-        <span class="glpi-badge">Base de Connaissances</span>
-        <span class="glpi-badge">Maintenance Système</span>
+      <!-- Badge global de statut sous les cartes -->
+      <div class="glpi-status-container slide-left">
+        <span class="glpi-status-badge">
+          <span class="pulse-dot"></span> En cours d'apprentissage
+        </span>
       </div>
     </div>
   </section>
